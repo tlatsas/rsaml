@@ -44,9 +44,9 @@ module RSAML #:nodoc:
       # Construct an XML fragment representing the authentication statement
       def to_xml(xml=Builder::XmlMarkup.new)
         validate
-        attributes = {'AuthnInstant' => authn_instant.xmlschema}
+        attributes = {'AuthnInstant' => authn_instant.in_time_zone.xmlschema}
         attributes['SessionIndex'] = session_index unless session_index.nil?
-        attributes['SessionNotOnOrAfter'] = session_not_on_or_after.xmlschema unless session_not_on_or_after.nil?
+        attributes['SessionNotOnOrAfter'] = session_not_on_or_after.in_time_zone.xmlschema unless session_not_on_or_after.nil?
         xml.tag!('saml:AuthnStatement', attributes) {
           xml << authn_context.to_xml
           xml << subject_locality.to_xml unless subject_locality.nil?

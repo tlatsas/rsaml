@@ -158,7 +158,7 @@ module RSAML #:nodoc:
     
     # Construct an XML fragment representing the assertion
     def to_xml(xml=Builder::XmlMarkup.new)
-      attributes = {'Version' => version, 'ID' => id, 'IssueInstant' => issue_instant.xmlschema}
+      attributes = {'Version' => version, 'ID' => id, 'IssueInstant' => issue_instant.in_time_zone.xmlschema}
       xml.tag!('saml:Assertion', attributes) {
         xml << issuer.to_xml
         xml << signature.to_xml unless signature.nil?
