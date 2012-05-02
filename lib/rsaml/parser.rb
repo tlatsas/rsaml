@@ -13,8 +13,8 @@ module RSAML #:nodoc:
       end
       
       case messages.length
-      when 1: messages.first
-      when 0: nil
+      when 1 then messages.first
+      when 0 then nil
       else
         messages
       end

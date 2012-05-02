@@ -15,8 +15,11 @@ end
 
 require 'rubygems'
 require 'uuid'
+require 'builder'
 begin
   require 'active_support'
+  require 'active_support/time'
+  require 'active_support/time_with_zone'
 rescue LoadError
   require 'activesupport'
 end

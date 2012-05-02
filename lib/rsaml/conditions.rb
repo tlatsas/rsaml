@@ -70,8 +70,8 @@ module RSAML #:nodoc:
     # Construct an XML fragment representing the conditions collection
     def to_xml(xml=Builder::XmlMarkup.new)
       attributes = {}
-      attributes['NotBefore'] = not_before.xmlschema unless not_before.nil?
-      attributes['NotOnOrAfter'] = not_on_or_after.xmlschema unless not_on_or_after.nil?
+      attributes['NotBefore'] = not_before.in_time_zone.xmlschema unless not_before.nil?
+      attributes['NotOnOrAfter'] = not_on_or_after.in_time_zone.xmlschema unless not_on_or_after.nil?
       xml.tag!('saml:Conditions', attributes) {
         conditions.each { |condition| xml << condition.to_xml }
         audience_restrictions.each do |audience|

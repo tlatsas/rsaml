@@ -12,7 +12,7 @@ module RSAML #:nodoc:
       
       # Construct an XML fragment representing the request
       def to_xml(xml=Builder::XmlMarkup.new)
-        attributes = {'ID' => id, 'Version' => version, 'IssueInstant' => issue_instant.xmlschema}
+        attributes = {'ID' => id, 'Version' => version, 'IssueInstant' => issue_instant.in_time_zone.xmlschema}
         attributes['Destination'] = destination unless destination.nil?
         attributes['Consent'] = consent unless consent.nil?
         attributes = add_xmlns(attributes)
