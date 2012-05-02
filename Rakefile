@@ -1,8 +1,8 @@
 require 'rake'
 require 'rake/testtask'
-require 'rake/rdoctask'
 require 'rake/packagetask'
 require 'rake/gempackagetask'
+require 'rdoc/task'
 
 require File.join(File.dirname(__FILE__), '/lib/rsaml/version')
 
