@@ -60,6 +60,7 @@ begin
     gemspec.authors = ["Anthony Eden"]
     gemspec.add_dependency('activesupport', '>=2.3.4')
     gemspec.add_dependency('uuid', '>=2.1.1')
+    gemspec.add_dependency('builder')
     gemspec.add_development_dependency('rake')
     gemspec.add_development_dependency('jeweler')
     gemspec.version = PKG_VERSION
