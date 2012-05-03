@@ -40,7 +40,13 @@ module RSAML #:nodoc:
       # ForceAuthn and IsPassive are "true", the identity provider MUST NOT freshly authenticate the 
       # presenter unless the constraints of IsPassive can be met.
       attr_accessor :force_authn
-      
+
+      # Returns only a boolean value if such exists in `force_authn`, otherwise falls back to the per SAML spec
+      # default "false".
+      def force_authn?
+        force_authn == true
+      end
+
       # A Boolean value. If "true", the identity provider and the user agent itself MUST NOT visibly take control 
       # of the user interface from the requester and interact with the presenter in a noticeable fashion. If a 
       # value is not provided, the default is "false".

@@ -9,6 +9,20 @@ class AuthnRequestTest < Test::Unit::TestCase
     should "be valid" do
       assert_nothing_raised { @request.validate }
     end
+    context "#force_authn?" do
+      should "be false when force_authn is false" do
+        @request.force_authn = false
+        assert_equal false, @request.force_authn?
+      end
+      should "be false when force_authn is nil" do
+        @request.force_authn = nil
+        assert_equal false, @request.force_authn?
+      end
+      should "be true when force_authn is true" do
+        @request.force_authn = true
+        assert_equal true, @request.force_authn?
+      end
+    end
     context "when producing xml" do
       should "output the samlp:AuthnRequest element" do
         assert_match '<samlp:AuthnRequest>', @request.to_xml
