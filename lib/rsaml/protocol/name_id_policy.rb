@@ -33,6 +33,18 @@ module RSAML #:nodoc:
         attributes['AllowCreate'] = allow_create unless allow_create.nil?
         xml.tag!('samlp:NameIDPolicy', attributes)
       end
+
+      # Construct an NameIdPolicy instance from the given XML Element or fragment.
+      def self.from_xml(element)
+        element = REXML::Document.new(element).root if element.is_a?(String)
+        self.new.tap { |policy|
+          policy.format = element.attribute('Format').value if element.attribute('Format')
+          policy.sp_name_qualifier = element.attribute('SPNameQualifier').value if element.attribute('SPNameQualifier')
+          if element.attribute('AllowCreate')
+            policy.allow_create = element.attribute('AllowCreate').value == 'true'
+          end
+        }
+      end
     end
   end
 end
