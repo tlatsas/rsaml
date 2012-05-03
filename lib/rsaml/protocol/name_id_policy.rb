@@ -18,6 +18,12 @@ module RSAML #:nodoc:
       # creating such identifiers outside the context of this specific request (for example, in advance for a 
       # large number of principals).
       attr_accessor :allow_create
+
+      # True if `allow_create` is explicitly `true`, otherwise `false` as per the spec
+      # definition default value.
+      def allow_create?
+        allow_create == true
+      end
       
       # Construct an XML fragment representing the name id policy
       def to_xml(xml=Builder::XmlMarkup.new)
