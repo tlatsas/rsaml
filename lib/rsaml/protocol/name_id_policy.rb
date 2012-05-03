@@ -2,7 +2,8 @@ module RSAML #:nodoc:
   module Protocol #:nodoc:
     # Tailors the name identifier in the subjects of assertions resulting from an authentication request.
     class NameIdPolicy
-      # Specifies the URI reference corresponding to a name identifier format
+      # Specifies the URI reference corresponding to a name identifier format.
+      # See section 8.3 of the SAML Core 2.0 specific for allowed formats.
       attr_accessor :format
       
       # Optionally specifies that the assertion subject's identifier be returned (or created) in the namespace of 
