@@ -98,6 +98,33 @@ module RSAML #:nodoc:
           xml << scoping.to_xml unless scoping.nil?
         }
       end
+
+      # Construct an AuthnRequest instance from the given XML Element or fragment.
+      def self.from_xml(element)
+        element = REXML::Document.new(element).root if element.is_a?(String)
+        self.new.tap { |request|
+          request.id = element.attribute('ID').value if element.attribute('ID')
+          request.version = element.attribute('Version').value if element.attribute('Version')
+          request.issue_instant = Time.parse(element.attribute('IssueInstant').value).utc if element.attribute('IssueInstant')
+          request.destination = element.attribute('Destination').value if element.attribute('Destination')
+          request.consent = element.attribute('Consent').value if element.attribute('Consent')
+
+          request.protocol_binding = element.attribute('ProtocolBinding').value if element.attribute('ProtocolBinding')
+          request.provider_name = element.attribute('ProviderName').value if element.attribute('ProviderName')
+          request.assertion_consumer_service_url = element.attribute('AssertionConsumerServiceURL').value if element.attribute('AssertionConsumerServiceURL')
+
+          request.force_authn = element.attribute('ForceAuthn').value == 'true' if element.attribute('ForceAuthn')
+          request.is_passive = element.attribute('IsPassive').value == 'true' if element.attribute('IsPassive')
+
+          if (subject = element.get_elements('saml:Issuer').first)
+            request.issuer = Identifier::Issuer.from_xml(subject)
+          end
+
+          if (subject = element.get_elements('samlp:NameIDPolicy').first || element.get_elements('NameIDPolicy').first)
+            request.name_id_policy = NameIdPolicy.from_xml(subject)
+          end
+        }
+      end
     end
   end
 end
