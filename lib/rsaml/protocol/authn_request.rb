@@ -51,7 +51,13 @@ module RSAML #:nodoc:
       # of the user interface from the requester and interact with the presenter in a noticeable fashion. If a 
       # value is not provided, the default is "false".
       attr_accessor :is_passive
-      
+
+      # Returns only a boolean value if such exists in `is_passive`, otherwise falls back to the per SAML spec
+      # default "false".
+      def passive?
+        is_passive == true
+      end
+
       attr_accessor :assertion_consumer_service_index
       
       attr_accessor :assertion_consumer_service_url

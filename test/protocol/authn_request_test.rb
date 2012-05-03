@@ -23,6 +23,20 @@ class AuthnRequestTest < Test::Unit::TestCase
         assert_equal true, @request.force_authn?
       end
     end
+    context "#passive?" do
+      should "be false when is_passive is false" do
+        @request.is_passive = false
+        assert_equal false, @request.passive?
+      end
+      should "be false when is_passive is nil" do
+        @request.is_passive = nil
+        assert_equal false, @request.passive?
+      end
+      should "be true when is_passive is true" do
+        @request.is_passive = true
+        assert_equal true, @request.passive?
+      end
+    end
     context "when producing xml" do
       should "output the samlp:AuthnRequest element" do
         assert_match '<samlp:AuthnRequest>', @request.to_xml
