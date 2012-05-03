@@ -41,10 +41,22 @@ module RSAML #:nodoc:
       # presenter unless the constraints of IsPassive can be met.
       attr_accessor :force_authn
 
-      # A Boolean value. If "true", the identity provider and the user agent itself MUST NOT visibly take control
-      # of the user interface from the requester and interact with the presenter in a noticeable fashion. If a
+      # Returns only a boolean value if such exists in `force_authn`, otherwise falls back to the per SAML spec
+      # default "false".
+      def force_authn?
+        force_authn == true
+      end
+
+      # A Boolean value. If "true", the identity provider and the user agent itself MUST NOT visibly take control 
+      # of the user interface from the requester and interact with the presenter in a noticeable fashion. If a 
       # value is not provided, the default is "false".
       attr_accessor :is_passive
+
+      # Returns only a boolean value if such exists in `is_passive`, otherwise falls back to the per SAML spec
+      # default "false".
+      def passive?
+        is_passive == true
+      end
 
       attr_accessor :assertion_consumer_service_index
 
@@ -84,6 +96,33 @@ module RSAML #:nodoc:
           xml << conditions.to_xml unless conditions.nil?
           xml << requested_authn_context unless requested_authn_context.nil?
           xml << scoping.to_xml unless scoping.nil?
+        }
+      end
+
+      # Construct an AuthnRequest instance from the given XML Element or fragment.
+      def self.from_xml(element)
+        element = REXML::Document.new(element).root if element.is_a?(String)
+        self.new.tap { |request|
+          request.id = element.attribute('ID').value if element.attribute('ID')
+          request.version = element.attribute('Version').value if element.attribute('Version')
+          request.issue_instant = Time.parse(element.attribute('IssueInstant').value).utc if element.attribute('IssueInstant')
+          request.destination = element.attribute('Destination').value if element.attribute('Destination')
+          request.consent = element.attribute('Consent').value if element.attribute('Consent')
+
+          request.protocol_binding = element.attribute('ProtocolBinding').value if element.attribute('ProtocolBinding')
+          request.provider_name = element.attribute('ProviderName').value if element.attribute('ProviderName')
+          request.assertion_consumer_service_url = element.attribute('AssertionConsumerServiceURL').value if element.attribute('AssertionConsumerServiceURL')
+
+          request.force_authn = element.attribute('ForceAuthn').value == 'true' if element.attribute('ForceAuthn')
+          request.is_passive = element.attribute('IsPassive').value == 'true' if element.attribute('IsPassive')
+
+          if (subject = element.get_elements('saml:Issuer').first)
+            request.issuer = Identifier::Issuer.from_xml(subject)
+          end
+
+          if (subject = element.get_elements('samlp:NameIDPolicy').first || element.get_elements('NameIDPolicy').first)
+            request.name_id_policy = NameIdPolicy.from_xml(subject)
+          end
         }
       end
     end
