@@ -13,20 +13,20 @@ module RSAML #:nodoc:
       # Constant representing the Success status :
       #   The request succeeded. Additional information MAY be returned in the
       #   <StatusMessage> and/or <StatusDetail> elements.
-      SUCCESS = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Success')
+      SUCCESS = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Success').freeze
       
       # Constant representing the Requester status :
       #   The request could not be performed due to an error on the part of the requester.
-      REQUESTER = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Requester')
+      REQUESTER = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Requester').freeze
       
       # Constant representing the Responder status :
       #   The request could not be performed due to an error on the part of the SAML responder
       #   or SAML authority.
-      RESPONDER = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Responder')
+      RESPONDER = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Responder').freeze
       
       # Constant representing the VersionMismatch status :
       #   The SAML responder could not process the request because the version of the request message was incorrect.
-      VERSION_MISMATCH = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:VersionMismatch')
+      VERSION_MISMATCH = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:VersionMismatch').freeze
       
       # Hash of symbol/StatusCode pairs representing top-level status codes.
       def self.top_level_status_codes

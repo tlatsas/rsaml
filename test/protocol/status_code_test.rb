@@ -17,17 +17,35 @@ class StatusCodeTest < Test::Unit::TestCase
       assert_equal StatusCode.top_level_status_codes[:version_mismatch], StatusCode::VERSION_MISMATCH
     end
   end
-  
-  context "a success status code instance" do
+
+  context "status code constants" do
     setup do
-      @status_code = StatusCode::SUCCESS
+      @status_code_constants = [
+          StatusCode::SUCCESS,
+          StatusCode::REQUESTER,
+          StatusCode::RESPONDER,
+          StatusCode::VERSION_MISMATCH
+      ]
     end
-    context "when producing xml" do
-      should "have the samlp:StatusCode element name" do
-        assert_match(/<samlp:StatusCode/, @status_code.to_xml)
+    should "be frozen" do
+      @status_code_constants.each do |status_code|
+        assert_raises RuntimeError do
+          status_code.value = "foo"
+        end
+        assert status_code.frozen?
       end
-      should "include a value" do
-        assert_match(/Value="urn:oasis:names:tc:SAML:2.0:status:Success"/, @status_code.to_xml)
+    end
+    context "success" do
+      setup do
+        @status_code = StatusCode::SUCCESS
+      end
+      context "when producing xml" do
+        should "have the samlp:StatusCode element name" do
+          assert_match(/<samlp:StatusCode/, @status_code.to_xml)
+        end
+        should "include a value" do
+          assert_match(/Value="urn:oasis:names:tc:SAML:2.0:status:Success"/, @status_code.to_xml)
+        end
       end
     end
   end
