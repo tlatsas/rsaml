@@ -29,7 +29,7 @@ module RSAML #:nodoc:
       # Identifies the entity that generated the message.
       attr_accessor :issuer
       
-      # An XML Signature that authenticates the requestor or responder and provides message integrity.
+      # An XML Signature that authenticates the requester or responder and provides message integrity.
       attr_accessor :signature
       
       # Initialize the message instance
