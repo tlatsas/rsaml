@@ -43,7 +43,7 @@ module RSAML #:nodoc:
       xml_attributes['NameFormat'] = name_format unless name_format.nil?
       xml_attributes['FriendlyName'] = friendly_name unless friendly_name.nil?
       xml.tag!('saml:Attribute', xml_attributes.merge(extra_xml_attributes)) {
-        values.each { |value| xml.tag!('saml:AttributeValue', value.to_s) }
+        values.each { |value| xml << value.to_xml }
       }
     end
     

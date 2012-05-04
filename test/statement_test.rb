@@ -40,7 +40,7 @@ class StatementTest < Test::Unit::TestCase
   context "an attribute statement" do
     setup do
       @statement = AttributeStatement.new
-      @statement.attributes << Attribute.new('email', 'someone@someplace.com')
+      @statement.attributes << Attribute.new('email', AttributeValue.new('someone@someplace.com'))
     end
     should "be valid" do
       assert_nothing_raised { @statement.validate }
@@ -53,7 +53,7 @@ class StatementTest < Test::Unit::TestCase
     end
     context "when producing xml" do
       should "include at least on attribute" do
-        assert_match(/<saml:AttributeStatement><saml:Attribute Name="email"><saml:AttributeValue>someone@someplace.com<\/saml:AttributeValue><\/saml:Attribute><\/saml:AttributeStatement>/, @statement.to_xml)
+        assert_match(/<saml:AttributeStatement><saml:Attribute Name="email"><saml:AttributeValue.*>someone@someplace.com<\/saml:AttributeValue><\/saml:Attribute><\/saml:AttributeStatement>/, @statement.to_xml)
       end
     end
   end

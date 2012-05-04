@@ -29,14 +29,14 @@ class AttributeTest < Test::Unit::TestCase
         assert_match(/FriendlyName="#{@attribute.friendly_name}"/, @attribute.to_xml)
       end
       should "optionally include a single attribute value child element" do
-        @attribute.values << 'someone@somewhere.com'
-        assert_match(/<saml:AttributeValue>someone@somewhere.com<\/saml:AttributeValue>/, @attribute.to_xml)
+        @attribute.values << AttributeValue.new('someone@somewhere.com')
+        assert_match(/saml:AttributeValue.*someone@somewhere.com.*saml:AttributeValue/, @attribute.to_xml)
       end
       should "optionally include multiple attribute value child elements" do
-        @attribute.values << 'someone@somewhere.com'
-        @attribute.values << 'someone@somewhereelse.com'
-        assert_match('<saml:AttributeValue>someone@somewhere.com</saml:AttributeValue>', @attribute.to_xml)
-        assert_match('<saml:AttributeValue>someone@somewhereelse.com</saml:AttributeValue>', @attribute.to_xml)
+        @attribute.values << AttributeValue.new('someone@somewhere.com')
+        @attribute.values << AttributeValue.new('someone@somewhereelse.com')
+        assert_match(/saml:AttributeValue.*someone@somewhere.com.*saml:AttributeValue/, @attribute.to_xml)
+        assert_match(/saml:AttributeValue.*someone@somewhereelse.com.*saml:AttributeValue/, @attribute.to_xml)
       end
       should "optionally include extra XML attributes" do
         @attribute.extra_xml_attributes['foo'] = 'bar'
