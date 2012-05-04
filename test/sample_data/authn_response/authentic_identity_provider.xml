@@ -1,0 +1,37 @@
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+                xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                ID="_54A11A4E88629F3A5E2DC62461BD428E"
+                Version="2.0"
+                IssueInstant="2008-05-27T11:11:33Z">
+    <saml:Issuer>http://authentic.local/saml/metadata</saml:Issuer>
+    <samlp:Status>
+        <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+    </samlp:Status>
+    <saml:Assertion Version="2.0" ID="_563301B7AD08D81EEA502077C1DB4160"
+                    IssueInstant="2008-05-27T11:11:33Z">
+        <saml:Issuer>http://authentic.local/saml/metadata</saml:Issuer>
+        <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">...</Signature>
+        <saml:Subject>
+            <saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+                         NameQualifier="http://authentic.local/saml/metadata"
+                         SPNameQualifier="http://sp.local/saml/metadata">_3AEC2A5675C630B61891233565F7FA2B
+            </saml:NameID>
+            <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+                <saml:SubjectConfirmationData NotOnOrAfter="2008-05-27T11:21:33Z"
+                                              Recipient="http://sp.local/saml/singleSignOnArtifact"/>
+            </saml:SubjectConfirmation>
+        </saml:Subject>
+        <saml:Conditions>
+            <saml:AudienceRestriction>
+                <saml:Audience>http://sp.local/saml/metadata</saml:Audience>
+            </saml:AudienceRestriction>
+        </saml:Conditions>
+        <saml:AuthnStatement AuthnInstant="2008-05-27T11:11:33Z" SessionIndex="125279ba015dc4bd"
+                             SessionNotOnOrAfter="2008-05-27T11:21:33Z">
+            <saml:AuthnContext>
+                <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+                </saml:AuthnContextClassRef>
+            </saml:AuthnContext>
+        </saml:AuthnStatement>
+    </saml:Assertion>
+</samlp:Response>

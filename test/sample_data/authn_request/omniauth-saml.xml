@@ -1,0 +1,16 @@
+<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+                    ID="_e7cbede0-6477-012f-549c-00242131fa16"
+                    Version="2.0"
+                    IssueInstant="2012-04-09T13:43:25Z"
+                    ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                    AssertionConsumerServiceURL="http://10.0.0.41:3500/auth/saml/callback">
+    <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">OmniAuthSAML</saml:Issuer>
+    <samlp:NameIDPolicy xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+                        Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+                        AllowCreate="true"></samlp:NameIDPolicy>
+    <samlp:RequestedAuthnContext xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" Comparison="exact">
+        <saml:AuthnContextClassRef xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
+            urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+        </saml:AuthnContextClassRef>
+    </samlp:RequestedAuthnContext>
+</samlp:AuthnRequest>

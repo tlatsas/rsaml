@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+                    ID="djikeehkdinmglljlaeianmgabajfnplkldoamkl"
+                    Version="2.0"
+                    IssueInstant="2008-05-27T08:19:29Z"
+                    ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                    ProviderName="google.com"
+                    AssertionConsumerServiceURL="https://www.google.com/a/g.feide.no/acs"
+                    IsPassive="false">
+    <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">google.com</saml:Issuer>
+    <samlp:NameIDPolicy AllowCreate="true"
+                        Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"/>
+</samlp:AuthnRequest>

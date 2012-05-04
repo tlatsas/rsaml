@@ -1,0 +1,14 @@
+<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+                    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                    ID="_d7607d551380ac97853a6ff4907c4ef01219be97dd"
+                    Version="2.0"
+                    IssueInstant="2008-05-27T07:46:06Z"
+                    ForceAuthn="true"
+                    IsPassive="false"
+                    Destination="https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php"
+                    ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                    AssertionConsumerServiceURL="http://dev.andreas.feide.no/simplesaml/saml2/sp/AssertionConsumerService.php">
+    <saml:Issuer>http://dev.andreas.feide.no/simplesaml/saml2/sp/metadata.php</saml:Issuer>
+    <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+                        AllowCreate="true"/>
+</samlp:AuthnRequest>

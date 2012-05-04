@@ -1,0 +1,9 @@
+<AuthnRequest Destination="http://idp.ssocircle.com:80/sso/SSORedirect/metaAlias/ssocircle"
+              IssueInstant="2008-05-28T20:12:35.971Z"
+              ID="xc6YVsq0cxOWkwdDqQwqCIMmHSu"
+              Version="2.0"
+              xmlns="urn:oasis:names:tc:SAML:2.0:protocol"
+              xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
+    <saml:Issuer>edugain.showcase.surfnet.nl</saml:Issuer>
+    <NameIDPolicy AllowCreate="true"/>
+</AuthnRequest>

@@ -1,0 +1,13 @@
+<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+                    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                    ID="_116346E65D6B4F0F9EE6AAA49D90523C"
+                    Version="2.0"
+                    IssueInstant="2008-05-27T08:25:23Z"
+                    Consent="urn:oasis:names:tc:SAML:2.0:consent:current-implicit"
+                    ForceAuthn="false"
+                    IsPassive="false">
+    <saml:Issuer>urn:mace:feide.no:services:no.uninett.maidentest</saml:Issuer>
+    <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+                        SPNameQualifier="urn:mace:feide.no:services:no.uninett.maidentest"
+                        AllowCreate="true"/>
+</samlp:AuthnRequest>

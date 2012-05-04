@@ -1,0 +1,120 @@
+<Response InResponseTo="_78b579d14708bf36642f1375f6ecc9642199b6bfdc"
+    IssueInstant="2008-06-03T09:46:55.934Z" ID="Vzf4L8F_PaZ-JOy4cpgijVTu0I_" Version="2.0"
+    xmlns="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <saml:Issuer>edugain.showcase.surfnet.nl</saml:Issuer>
+    <Status>
+        <StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+    </Status>
+    <saml:Assertion Version="2.0" IssueInstant="2008-06-03T09:46:55.947Z"
+        ID="G4t1o38BoKjogdlV9AYnC7wDcOL">
+        <saml:Issuer>edugain.showcase.surfnet.nl</saml:Issuer>
+        <ds:Signature>
+            <ds:SignedInfo>
+                <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                <ds:Reference URI="#G4t1o38BoKjogdlV9AYnC7wDcOL">
+                    <ds:Transforms>
+                        <ds:Transform
+                            Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                        <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                    </ds:Transforms>
+                    <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                    <ds:DigestValue>drF4K3fUbvfLYdKSk/Axynxu/8Q=</ds:DigestValue>
+                </ds:Reference>
+            </ds:SignedInfo>
+
+            <ds:SignatureValue>SOa3qqE8fvojAcH0pD3KEDkqkgpdAELRrLYiCw8K0xn2i+Q2o/n2bZXLY/s1tZqhEoykE6A37Fd1
+                O10z75MTbW0DX3oFCEwBT0l7bFV3zoqmbuwZ8+AWm3/86u4kSGuY1HJAtV7wp610j0X5I3rAejsc
+                UyLO8gjre6W7dFkWqC4=</ds:SignatureValue>
+            <ds:KeyInfo>
+                <ds:X509Data>
+
+                    <ds:X509Certificate>MIICUzCCAbygAwIBAgIGARQGprr2MA0GCSqGSIb3DQEBBQUAMG0xCzAJBgNVBAYTAk5MMRAwDgYD
+                        VQQHEwdVdHJlY2h0MRMwEQYDVQQKEwpTVVJGbmV0IEJWMRwwGgYDVQQLExNNaWRkbGV3YXJlIFNl
+                        cnZpY2VzMRkwFwYDVQQDExBGZWRlcmF0aWUgQmVoZWVyMB4XDTA3MDcyNzA3NDkyM1oXDTEyMDcy
+                        NTA3NDkyM1owbTELMAkGA1UEBhMCTkwxEDAOBgNVBAcTB1V0cmVjaHQxEzARBgNVBAoTClNVUkZu
+                        ZXQgQlYxHDAaBgNVBAsTE01pZGRsZXdhcmUgU2VydmljZXMxGTAXBgNVBAMTEEZlZGVyYXRpZSBC
+                        ZWhlZXIwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAJV0dbL8fZe9quABgF8rnJPwjIp+FLIa
+                        DFypyXUu6ob7tQJtqmD8W7LawxjlGTnswoqOolMVEyQLbw+RLDwtfJ/45/65aA4J+/I8vD68H4go
+                        ice63Q81SIJLIPBmksdSICokDnv/FTyPuZqlPOzuapnaYs9UO9slpmgkNtCiiLh7AgMBAAEwDQYJ
+                        KoZIhvcNAQEFBQADgYEANVzWNWLxCIx3sWz6+BWUZzAMlKJovfmNK5kCROx+Fc7r/Tns4P0Xlwp2
+                        mLtgOqhhI4L3gpGFrUfN/tUfn0rjdjlDAxB206fDUslNOIrhyPjqaDgKbCxgrB7c9ybuxAq+5m97
+                        NQBAUrKDuTTbN7llgCpw+Ui8FusIorNTlGVcpC0=</ds:X509Certificate>
+                </ds:X509Data>
+                <ds:KeyValue>
+                    <ds:RSAKeyValue>
+
+                        <ds:Modulus>lXR1svx9l72q4AGAXyuck/CMin4UshoMXKnJdS7qhvu1Am2qYPxbstrDGOUZOezCio6iUxUTJAtv
+                            D5EsPC18n/jn/rloDgn78jy8PrwfiCiJx7rdDzVIgksg8GaSx1IgKiQOe/8VPI+5mqU87O5qmdpi
+                            z1Q72yWmaCQ20KKIuHs=</ds:Modulus>
+                        <ds:Exponent>AQAB</ds:Exponent>
+                    </ds:RSAKeyValue>
+                </ds:KeyValue>
+            </ds:KeyInfo>
+        </ds:Signature>
+        <saml:Subject>
+            <saml:NameID SPNameQualifier="urn:mace:feide.no:services:no.feide.foodle"
+                NameQualifier="edugain.showcase.surfnet.nl"
+                Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+                >SvmQaABKKVdE71wxeuuwXQacDmj</saml:NameID>
+            <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+                <saml:SubjectConfirmationData
+                    InResponseTo="_78b579d14708bf36642f1375f6ecc9642199b6bfdc"
+                    NotOnOrAfter="2008-06-03T09:51:55.948Z"
+                    Recipient="https://foodle.feide.no/simplesaml/saml2/sp/AssertionConsumerService.php"
+                />
+            </saml:SubjectConfirmation>
+        </saml:Subject>
+        <saml:Conditions NotOnOrAfter="2008-06-03T09:51:55.947Z"
+            NotBefore="2008-06-03T09:41:55.947Z">
+            <saml:AudienceRestriction>
+
+                <saml:Audience>urn:mace:feide.no:services:no.feide.foodle</saml:Audience>
+            </saml:AudienceRestriction>
+        </saml:Conditions>
+        <saml:AuthnStatement AuthnInstant="2008-06-03T09:46:55.946Z"
+            SessionIndex="G4t1o38BoKjogdlV9AYnC7wDcOL">
+            <saml:AuthnContext>
+
+                <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified</saml:AuthnContextClassRef>
+            </saml:AuthnContext>
+        </saml:AuthnStatement>
+        <saml:AttributeStatement xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                Name="urn:mace:dir:attribute-def:eduPersonAffiliation">
+                <saml:AttributeValue xsi:type="xs:string">Medewerker</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                Name="urn:mace:dir:attribute-def:displayName">
+                <saml:AttributeValue xsi:type="xs:string">Hans Zandbelt</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                Name="urn:mace:dir:attribute-def:givenName">
+                <saml:AttributeValue xsi:type="xs:string">Hans</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                Name="urn:mace:dir:attribute-def:mail">
+                <saml:AttributeValue xsi:type="xs:string"
+                >Hans.Zandbelt@surfnet.nl</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                Name="urn:mace:dir:attribute-def:uid">
+                <saml:AttributeValue xsi:type="xs:string">hansz</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                Name="urn:mace:dir:attribute-def:cn">
+                <saml:AttributeValue xsi:type="xs:string">Hans Zandbelt</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                Name="urn:mace:dir:attribute-def:sn">
+                <saml:AttributeValue xsi:type="xs:string">Zandbelt</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                Name="urn:mace:dir:attribute-def:eduPersonPrincipalName">
+                <saml:AttributeValue xsi:type="xs:string">hansz@surfnet.nl</saml:AttributeValue>
+            </saml:Attribute>
+        </saml:AttributeStatement>
+    </saml:Assertion>
+</Response>

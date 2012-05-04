@@ -1,0 +1,113 @@
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+    ID="s2a504080855534e5ecb4fc00234670530e97b7dd2"
+    InResponseTo="_64f9bc2dd1cd092b0d0660dbe3b7a5c1aca58d36e0" Version="2.0"
+    IssueInstant="2008-05-27T08:02:21Z"
+    Destination="https://foodle.feide.no/simplesaml/saml2/sp/AssertionConsumerService.php">
+    <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">sam.feide.no</saml:Issuer>
+    <samlp:Status xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+        <samlp:StatusCode xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+            Value="urn:oasis:names:tc:SAML:2.0:status:Success"> </samlp:StatusCode>
+    </samlp:Status>
+    <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Version="2.0"
+        ID="s2d1b5d94172a4ffb6a0acb5ff6a1f3725050178c7" IssueInstant="2008-05-27T08:02:21Z">
+        <saml:Issuer>sam.feide.no</saml:Issuer>
+        <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <SignedInfo>
+                <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                <Reference URI="#s2d1b5d94172a4ffb6a0acb5ff6a1f3725050178c7">
+                    <Transforms>
+                        <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                        <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                    </Transforms>
+                    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                    <DigestValue>14mXZf9S3XVRUa07uJN7365Qg6I=</DigestValue>
+                </Reference>
+            </SignedInfo>
+            <SignatureValue>
+                BnyFKwbraaElaebiQjLnzRJ7IqceiWFRIYpPDoojwratDrDRZgpNjQJ3wivwGgJjTyqLGSGyQWWd
+                V+LoNWOcYnU8mdEswGt7Ieok/fnyPGSmkKn9Gjg0xI3sBMOZrYVncQpzprcpmxtZXX8WhuzlHWXi
+                J8hKJCAK1e6blH6zar8= </SignatureValue>
+            <KeyInfo>
+                <X509Data>
+                    <X509Certificate>
+                        MIICIDCCAYkCBEXArTMwDQYJKoZIhvcNAQEFBQAwVzELMAkGA1UEBhMCVVMxDDAKBgNVBAoTA1N1
+                        bjEnMCUGA1UECxMeU1VOIEphdmEgU3lzdGVtIEFjY2VzcyBNYW5hZ2VyMREwDwYDVQQDEwhzdW4t
+                        dW5peDAeFw0wNzAxMzExNDUyMzVaFw0wNzA1MDExNDUyMzVaMFcxCzAJBgNVBAYTAlVTMQwwCgYD
+                        VQQKEwNTdW4xJzAlBgNVBAsTHlNVTiBKYXZhIFN5c3RlbSBBY2Nlc3MgTWFuYWdlcjERMA8GA1UE
+                        AxMIc3VuLXVuaXgwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAIwp8/BWf8oRZv/llnoQAaQc
+                        Rz7BbZSrKU+x/+sG0s/a/8NFsIZZZK3BDfSZtm9TeOgzhUEDb/2y0vyxLDeXzrG04lwQtfWz9oSW
+                        Q7Ogsy9mVCEwJACSseIL7SgzDUOqWrrn/YelBujhu2RIY6dyWxe9lYp2hO7/UmViATMQJEO/AgMB
+                        AAEwDQYJKoZIhvcNAQEFBQADgYEAacGGXl1ApPdULnBwdiMKdURA/d31uKiLfJzS4LfHpoh9M1Xq
+                        54OROEPN07qVcMFZR1Vtl37csY4EUdpwSjGboNQscG4lFkw2/IvldDmZWPkid/2rDZR7vxdZv/RK
+                        Wp2xWqtD1sEgMY7s+h0UbfW1wX6W9hIAMmpAFei9hWgPmiQ= </X509Certificate>
+                </X509Data>
+            </KeyInfo>
+        </Signature>
+        <saml:Subject>
+            <saml:NameID NameQualifier="sam.feide.no"
+                SPNameQualifier="urn:mace:feide.no:services:no.feide.foodle"
+                Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+                >cewDjynAPJPWP1gTNv4tDmyrCWTC</saml:NameID>
+            <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+                <saml:SubjectConfirmationData NotOnOrAfter="2008-05-27T16:02:21Z"
+                    InResponseTo="_64f9bc2dd1cd092b0d0660dbe3b7a5c1aca58d36e0"
+                    Recipient="https://foodle.feide.no/simplesaml/saml2/sp/AssertionConsumerService.php"
+                />
+            </saml:SubjectConfirmation>
+        </saml:Subject>
+        <saml:Conditions NotBefore="2008-05-27T07:52:21Z" NotOnOrAfter="2008-05-27T16:02:21Z">
+            <saml:AudienceRestriction>
+                <saml:Audience>urn:mace:feide.no:services:no.feide.foodle</saml:Audience>
+            </saml:AudienceRestriction>
+        </saml:Conditions>
+        <saml:AuthnStatement AuthnInstant="2008-05-27T08:02:21Z"
+            SessionIndex="s25190a69f8928b580a7b5b1aa169cffba80e7dc01">
+            <saml:AuthnContext>
+                <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</saml:AuthnContextClassRef>
+            </saml:AuthnContext>
+        </saml:AuthnStatement>
+        <saml:AttributeStatement>
+            <saml:Attribute Name="givenName">
+                <saml:AttributeValue xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                >QW5kcmVhcw==</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute Name="eduPersonPrincipalName">
+                <saml:AttributeValue xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                    >YW5kcmVhc0B1bmluZXR0Lm5v</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute Name="o">
+                <saml:AttributeValue xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                >VU5JTkVUVA==</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute Name="ou">
+                <saml:AttributeValue xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                >VU5JTkVUVA==</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute Name="eduPersonOrgDN">
+                <saml:AttributeValue xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                    >ZGM9dW5pbmV0dCxkYz1ubw==</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute Name="mail">
+                <saml:AttributeValue xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                    >YW5kcmVhcy5zb2xiZXJnQHVuaW5ldHQubm8=</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute Name="eduPersonOrgUnitDN">
+                <saml:AttributeValue xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                    >b3U9U1Usb3U9VEEsb3U9VU5JTkVUVCxvdT1vcmdhbml6YXRpb24sZGM9dW5pbmV0dCxkYz1ubw==_b3U9VEEsb3U9VU5JTkVUVCxvdT1vcmdhbml6YXRpb24sZGM9dW5pbmV0dCxkYz1ubw==</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute Name="sn">
+                <saml:AttributeValue xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                >U29sYmVyZw==</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute Name="cn">
+                <saml:AttributeValue xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                    >QW5kcmVhcyDDhWtyZSBTb2xiZXJn</saml:AttributeValue>
+            </saml:Attribute>
+            <saml:Attribute Name="eduPersonAffiliation">
+                <saml:AttributeValue xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                    >ZW1wbG95ZWU=_bWVtYmVy</saml:AttributeValue>
+            </saml:Attribute>
+        </saml:AttributeStatement>
+    </saml:Assertion>
+</samlp:Response>
