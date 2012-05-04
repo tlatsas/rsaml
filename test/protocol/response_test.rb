@@ -4,7 +4,7 @@ class ResponseTest < Test::Unit::TestCase
   include RSAML::Protocol
   context "a response instance" do
     setup do
-      @response = Response.new(Status.new(StatusCode::SUCCESS))
+      @response = Response.new(Status.new(StatusCode.new(:success)))
     end
     should "require an id" do
       @response.id = nil

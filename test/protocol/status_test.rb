@@ -5,11 +5,11 @@ class StatusTest < Test::Unit::TestCase
   
   context "a status instance" do
     setup do
-      @status = Status.new(StatusCode::SUCCESS)
+      @status = Status.new(StatusCode.new(:success))
     end
     context "when producing xml" do
       should "include a status code" do
-        assert_match(%Q(<samlp:StatusCode Value="#{StatusCode::SUCCESS}">), @status.to_xml)
+        assert_match(%Q(<samlp:StatusCode Value="#{StatusCode::Values::SUCCESS}">), @status.to_xml)
       end
     end
   end

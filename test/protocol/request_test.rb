@@ -31,7 +31,7 @@ class RequestTest < Test::Unit::TestCase
       end
     end
     should "create a response with in_response_to set properly" do
-      response = @request.respond(Status.new(StatusCode::SUCCESS))
+      response = @request.respond(Status.new(StatusCode.new(:success)))
       assert_not_nil response
       assert_equal @request.id, response.in_response_to
     end
