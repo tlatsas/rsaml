@@ -13,8 +13,8 @@ module RSAML #:nodoc:
       # Constant respresenting the Success status
       SUCCESS = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Success')
       
-      # Constant representing the Requestor status
-      REQUESTOR = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Requestor')
+      # Constant representing the Requester status
+      REQUESTER = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Requester')
       
       # Constant representing the Responder status
       RESPONDER = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Responder')
@@ -26,7 +26,7 @@ module RSAML #:nodoc:
       def self.top_level_status_codes
         @top_level_status_codes ||= {
           :success => SUCCESS,
-          :requestor => REQUESTOR,
+          :requester => REQUESTER,
           :responder => RESPONDER,
           :version_mismatch => VERSION_MISMATCH
         }

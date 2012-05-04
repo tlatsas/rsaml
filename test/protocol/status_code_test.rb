@@ -12,7 +12,7 @@ class StatusCodeTest < Test::Unit::TestCase
     end
     should "have constants for the top-level status codes" do
       assert_equal StatusCode.top_level_status_codes[:success], StatusCode::SUCCESS
-      assert_equal StatusCode.top_level_status_codes[:requestor], StatusCode::REQUESTOR
+      assert_equal StatusCode.top_level_status_codes[:requester], StatusCode::REQUESTER
       assert_equal StatusCode.top_level_status_codes[:responder], StatusCode::RESPONDER
       assert_equal StatusCode.top_level_status_codes[:version_mismatch], StatusCode::VERSION_MISMATCH
     end

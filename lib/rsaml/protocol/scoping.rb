@@ -15,8 +15,8 @@ module RSAML #:nodoc:
       
       # Identifies the set of requesting entities on whose behalf the requester is acting. Used to communicate 
       # the chain of requesters when proxying occurs.
-      def requestor_ids
-        @requestor_ids ||= []
+      def requester_ids
+        @requester_ids ||= []
       end
       
       # Construct an XML fragment representing the scoping
@@ -25,7 +25,7 @@ module RSAML #:nodoc:
         attributes['ProxyCount'] = proxy_count if proxy_count
         xml.tag!('samlp:Scoping', attributes) {
           xml << idp_list.to_xml if idp_list
-          requestor_ids.each { |requestor_id| xml << requestor_id.to_xml }
+          requester_ids.each { |requester_id| xml << requester_id.to_xml }
         }
       end
     end
