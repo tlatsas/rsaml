@@ -10,16 +10,22 @@ module RSAML #:nodoc:
         @value = value
       end
       
-      # Constant representing the Success status
+      # Constant representing the Success status :
+      #   The request succeeded. Additional information MAY be returned in the
+      #   <StatusMessage> and/or <StatusDetail> elements.
       SUCCESS = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Success')
       
-      # Constant representing the Requester status
+      # Constant representing the Requester status :
+      #   The request could not be performed due to an error on the part of the requester.
       REQUESTER = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Requester')
       
-      # Constant representing the Responder status
+      # Constant representing the Responder status :
+      #   The request could not be performed due to an error on the part of the SAML responder
+      #   or SAML authority.
       RESPONDER = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Responder')
       
-      # Constant representing the VersionMismatch status
+      # Constant representing the VersionMismatch status :
+      #   The SAML responder could not process the request because the version of the request message was incorrect.
       VERSION_MISMATCH = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:VersionMismatch')
       
       # Hash of symbol/StatusCode pairs representing top-level status codes.
@@ -58,9 +64,12 @@ module RSAML #:nodoc:
       end
       
       # The status code value. Value is a URI reference.
+      # The value of this if the current status code is the topmost one,
+      # must be from the top-level status codes.
       attr_accessor :value
       
-      # An optional child status code.
+      # An optional subordinate status code that provides more specific information on an error condition.
+      # Value is a StatusCode.
       attr_accessor :status_code
       
       def validate
