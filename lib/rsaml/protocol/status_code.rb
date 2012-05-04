@@ -10,7 +10,7 @@ module RSAML #:nodoc:
         @value = value
       end
       
-      # Constant respresenting the Success status
+      # Constant representing the Success status
       SUCCESS = StatusCode.new('urn:oasis:names:tc:SAML:2.0:status:Success')
       
       # Constant representing the Requester status
