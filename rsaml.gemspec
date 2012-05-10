@@ -14,10 +14,10 @@ Gem::Specification.new do |s|
   s.email = ["anthonyeden@gmail.com", "scashin133@gmail.com", "elise@elisehuard.be"]
   s.extra_rdoc_files = [
     "LICENSE",
-    "README"
+    "README.rdoc"
   ]
   s.files = [
-    "README",
+    "README.rdoc",
     "Rakefile",
     "lib/rsaml.rb",
     "lib/rsaml/action.rb",
