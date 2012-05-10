@@ -18,10 +18,10 @@ Gem::Specification.new do |s|
   s.email = ["anthonyeden@gmail.com", "scashin133@gmail.com", 'elise@elisehuard.be']
   s.extra_rdoc_files = [
     "LICENSE",
-     "README"
+     "README.rdoc"
   ]
   s.files = [
-    "README",
+    "README.rdoc",
      "Rakefile",
      "lib/rsaml.rb",
      "lib/rsaml/action.rb",
@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
      "lib/rsaml/attribute.rb",
      "lib/rsaml/audience.rb",
      "lib/rsaml/authentication_context.rb",
-     "lib/rsaml/authn_context/README",
+     "lib/rsaml/authn_context/README.rdoc",
      "lib/rsaml/authn_context/authentication_context_declaration.rb",
      "lib/rsaml/authn_context/identification.rb",
      "lib/rsaml/authn_context/physical_verification.rb",
