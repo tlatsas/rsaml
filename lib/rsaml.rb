@@ -58,4 +58,6 @@ require 'rsaml/subject_locality'
 
 require 'rsaml/protocol'
 
+require 'rsaml/binding'
+
 require 'rsaml/parser'
