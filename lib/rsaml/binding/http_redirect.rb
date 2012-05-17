@@ -1,3 +1,6 @@
+require 'zlib'
+require 'uri'
+
 module RSAML
   module Binding
     # The HTTP Redirect binding defines a mechanism by which SAML protocol messages can be transmitted
@@ -29,6 +32,22 @@ module RSAML
       class << self
         def identification
           URN
+        end
+
+        # Encoding implementation for HTTP Redirect binding :
+        #  * Deflate
+        #  * Base 64
+        #  * URI encode
+        def encode(xml)
+          ::URI::encode(Base64.encode64(Zlib::Deflate.deflate(xml)))
+        end
+
+        # Decoding implementation for HTTP Redirect binding :
+        #  * URI decode
+        #  * Base 64
+        #  * Inflate
+        def decode(xml)
+          Zlib::Inflate.inflate(Base64.decode64(::URI::decode(xml)))
         end
       end
     end
