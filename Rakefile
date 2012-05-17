@@ -24,27 +24,6 @@ PKG_FILES = FileList[
   'lib/**/*',
 ] - [ 'test' ]
 
-spec = Gem::Specification.new do |s|
-  s.name = 'rsaml'
-  s.version = PKG_VERSION
-  s.summary = "RSAML - SAML implementation in Ruby."
-  s.description = <<-EOF
-    An implementation of SAML in Ruby.
-  EOF
-
-  s.add_dependency('rake', '>= 0.7.1')
-  s.add_dependency('uuid', '>= 1.0.4')
-
-  s.rdoc_options << '--exclude' << '.'
-  s.has_rdoc = false
-
-  s.files = PKG_FILES.to_a.delete_if {|f| f.include?('.svn')}
-  s.require_path = 'lib'
-
-  s.author = "Anthony Eden"
-  s.email = "anthonyeden@gmail.com"
-end
-
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
