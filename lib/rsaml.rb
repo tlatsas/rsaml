@@ -1,4 +1,6 @@
-$KCODE = 'UTF-8'
+if RUBY_VERSION =~ /1\.8/
+  $KCODE = 'UTF-8'
+end
 
 module RSAML
   def saml_namespaces
