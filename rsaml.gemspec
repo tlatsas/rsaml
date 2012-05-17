@@ -8,12 +8,11 @@ Gem::Specification.new do |s|
   s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Anthony Eden"]
+  s.authors = ["Anthony Eden", "Nikos Dimitrakopoulos"]
   s.date = "2012-05-17"
   s.description = "RSAML is a SAML implementation in Ruby. RSAML currently implements the elements defined in the SAML-Core 2.0 \n    specification by defining an object model that mimics the structure of SAML. Method names and attributes have been made \n    ruby-friendly and documentation is provided for each class and method. In certain cases the SAML specification is \n    referenced directly and should be considered the final say whenever a question arises regarding SAML implementation.\n    "
-  s.email = ["anthonyeden@gmail.com", "scashin133@gmail.com", "elise@elisehuard.be"]
+  s.email = ["anthonyeden@gmail.com", "nospam@nikosd.com", "scashin133@gmail.com", "elise@elisehuard.be"]
   s.extra_rdoc_files = [
-    "LICENSE",
     "README.rdoc"
   ]
   s.files = [
@@ -92,7 +91,7 @@ Gem::Specification.new do |s|
     "lib/xml_sig/signed_info.rb",
     "lib/xml_sig/transform.rb"
   ]
-  s.homepage = "http://github.com/aeden/rsaml"
+  s.homepage = "http://github.com/rsaml/rsaml"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.17"
   s.summary = "Ruby implementation of the SAML 2.0 Specification"
@@ -102,19 +101,6 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rsaml>, [">= 0"])
-      s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, [">= 2.3.4"])
       s.add_runtime_dependency(%q<uuid>, [">= 2.1.1"])
       s.add_runtime_dependency(%q<macaddr>, [">= 1.5.0"])
@@ -124,19 +110,6 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<shoulda>, [">= 0"])
     else
       s.add_dependency(%q<rsaml>, [">= 0"])
-      s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 2.3.4"])
       s.add_dependency(%q<uuid>, [">= 2.1.1"])
       s.add_dependency(%q<macaddr>, [">= 1.5.0"])
@@ -147,19 +120,6 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<rsaml>, [">= 0"])
-    s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 2.3.4"])
     s.add_dependency(%q<uuid>, [">= 2.1.1"])
     s.add_dependency(%q<macaddr>, [">= 1.5.0"])

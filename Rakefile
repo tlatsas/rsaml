@@ -33,9 +33,9 @@ begin
     ruby-friendly and documentation is provided for each class and method. In certain cases the SAML specification is 
     referenced directly and should be considered the final say whenever a question arises regarding SAML implementation.
     }
-    gemspec.email = ["anthonyeden@gmail.com", "scashin133@gmail.com", "elise@elisehuard.be"]
-    gemspec.homepage = "http://github.com/aeden/rsaml"
-    gemspec.authors = ["Anthony Eden"]
+    gemspec.email = ["anthonyeden@gmail.com", "nospam@nikosd.com", "scashin133@gmail.com", "elise@elisehuard.be"]
+    gemspec.homepage = "http://github.com/rsaml/rsaml"
+    gemspec.authors = ["Anthony Eden", "Nikos Dimitrakopoulos"]
     gemspec.add_dependency('activesupport', '>=2.3.4')
     gemspec.add_dependency('uuid', '>=2.1.1')
     gemspec.add_dependency('macaddr', '>=1.5.0') # Explicitly require > 1.5 for better 1.9.3 compatibility
@@ -51,7 +51,6 @@ begin
 rescue LoadError
   puts "Jeweler not available.  Install it with: gem install jeweler"
 end
-
 
 desc 'Default: run unit tests.'
 task :default => :test
