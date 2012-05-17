@@ -49,6 +49,28 @@ module RSAML
         def decode(xml)
           Zlib::Inflate.inflate(Base64.decode64(::URI::decode(xml)))
         end
+
+        # Wrapper around `message_data` that produces the actual redirection URL with
+        # the SAML data payload.
+        #
+        # The endpoint_url is the base url on to build upon.
+        # Options are passed directly to `message_data`.
+        def message_url(message, endpoint_url, options = {})
+          saml_query_attributes = []
+          if message.kind_of? RSAML::Protocol::Response
+            saml_query_attributes << "SAMLResponse=#{message_data(message, options)}"
+          elsif message.kind_of? RSAML::Protocol::Request
+            saml_query_attributes << "SAMLRequest=#{message_data(message, options)}"
+          else
+            raise ArgumentError.new('message should be kind of Protocol::Response or Protocol::Request')
+          end
+
+          uri = ::URI.parse(endpoint_url)
+          uri.query = uri.query.blank? ? '' : "#{uri.query}&"
+          uri.query << saml_query_attributes.join('&')
+
+          uri.to_s
+        end
       end
     end
   end
