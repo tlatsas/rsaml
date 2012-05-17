@@ -90,6 +90,7 @@ module RSAML #:nodoc:
         attributes['ProtocolBinding'] = protocol_binding unless protocol_binding.nil?
         attributes['AttributeConsumingServiceURL'] = attribute_consuming_service_url unless attribute_consuming_service_url.nil?
         attributes['ProviderName'] = provider_name unless provider_name.nil?
+        attributes = add_xmlns(attributes)
         xml.tag!('samlp:AuthnRequest', attributes) {
           xml << subject.to_xml unless subject.nil?
           xml << name_id_policy.to_xml unless name_id_policy.nil?

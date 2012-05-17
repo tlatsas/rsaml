@@ -39,7 +39,7 @@ class AuthnRequestTest < Test::Unit::TestCase
     end
     context "when producing xml" do
       should "output the samlp:AuthnRequest element" do
-        assert_match '<samlp:AuthnRequest>', @request.to_xml
+        assert_match "<samlp:AuthnRequest xmlns:samlp=\"urn:oasis:names:tc:SAML:2.0:protocol\" xmlns:saml=\"urn:oasis:names:tc:SAML:2.0:assertion\"", @request.to_xml
       end
       should "optionally include a subject child" do
         @request.subject = Subject.new
