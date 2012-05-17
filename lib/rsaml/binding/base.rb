@@ -28,6 +28,11 @@ module RSAML
           Protocol::AuthnRequest.from_xml(decode(xml))
         end
       end
+
+      # Accessor to the actual class method.
+      def identification
+        self.class.identification
+      end
     end
   end
 end
