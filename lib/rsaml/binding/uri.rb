@@ -10,7 +10,7 @@ module RSAML
     # REQUIRED (mandatory to implement).
     #
     # See SAML 2.0 Bindings spec, section 3.7 for more info.
-    class URI
+    class URI < Base
       URN = 'urn:oasis:names:tc:SAML:2.0:bindings:URI'.freeze
 
       def self.identification

@@ -18,7 +18,7 @@ module RSAML
     # bindings. This binding assumes nothing apart from the capabilities of a common web browser.
     #
     # See SAML 2.0 Bindings spec, section 3.5 for more info.
-    class HTTPPost
+    class HTTPPost < Base
       URN = 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'.freeze
 
       def self.identification

@@ -11,7 +11,7 @@ module RSAML
     # intermediary in an authentication exchange.
     #
     # See SAML 2.0 Bindings spec, section 3.3 for more info.
-    class PAOS
+    class PAOS < Base
       URN = 'urn:oasis:names:tc:SAML:2.0:bindings:PAOS'.freeze
 
       def self.identification

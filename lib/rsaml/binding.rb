@@ -4,6 +4,7 @@ module RSAML #:nodoc:
   end
 end
 
+require 'rsaml/binding/base'
 require 'rsaml/binding/http_redirect'
 require 'rsaml/binding/http_post'
 require 'rsaml/binding/http_artifact'
