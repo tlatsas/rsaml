@@ -1,5 +1,6 @@
 module RSAML
   module Binding
+    # Common functionality shared amongst specific bindings implementations.
     class Base
       class << self
         # Some bindings require an encoding before sending a SAML protocol message.
