@@ -15,7 +15,6 @@ PKG_DESTINATION = ENV["PKG_DESTINATION"] || "../#{PKG_NAME}"
 RELEASE_NAME  = "REL #{PKG_VERSION}"
 PKG_FILES = FileList[
   #'CHANGELOG',
-  #'LICENSE',
   'README.rdoc',
   #'TODO',
   'Rakefile',

@@ -13,3 +13,9 @@ Concrete requests:
 == A note on the implementation
 
 RSAML is implemented in a very verbose fashion. While there are probably ways to reduce the code footprint using meta programming and other Rubyisms, I've attempted to stick to an implementation style that is easy to follow for non-rubyists and rubyists alike. Additionally I am striving for a comprehensive test suite that can be used to verify conformance to the SAML 2.0 specification.
+
+== License
+
+RSAML is released under the MIT license:
+
+* http://www.opensource.org/licenses/MIT
