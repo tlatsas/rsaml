@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Anthony Eden"]
-  s.date = "2012-05-02"
+  s.date = "2012-05-17"
   s.description = "RSAML is a SAML implementation in Ruby. RSAML currently implements the elements defined in the SAML-Core 2.0 \n    specification by defining an object model that mimics the structure of SAML. Method names and attributes have been made \n    ruby-friendly and documentation is provided for each class and method. In certain cases the SAML specification is \n    referenced directly and should be considered the final say whenever a question arises regarding SAML implementation.\n    "
   s.email = ["anthonyeden@gmail.com", "scashin133@gmail.com", "elise@elisehuard.be"]
   s.extra_rdoc_files = [
@@ -25,12 +25,21 @@ Gem::Specification.new do |s|
     "lib/rsaml/advice.rb",
     "lib/rsaml/assertion.rb",
     "lib/rsaml/attribute.rb",
+    "lib/rsaml/attribute_value.rb",
     "lib/rsaml/audience.rb",
     "lib/rsaml/authentication_context.rb",
-    "lib/rsaml/authn_context/README",
+    "lib/rsaml/authn_context/README.rdoc",
     "lib/rsaml/authn_context/authentication_context_declaration.rb",
     "lib/rsaml/authn_context/identification.rb",
     "lib/rsaml/authn_context/physical_verification.rb",
+    "lib/rsaml/binding.rb",
+    "lib/rsaml/binding/base.rb",
+    "lib/rsaml/binding/http_artifact.rb",
+    "lib/rsaml/binding/http_post.rb",
+    "lib/rsaml/binding/http_redirect.rb",
+    "lib/rsaml/binding/paos.rb",
+    "lib/rsaml/binding/soap.rb",
+    "lib/rsaml/binding/uri.rb",
     "lib/rsaml/condition.rb",
     "lib/rsaml/conditions.rb",
     "lib/rsaml/encrypted.rb",
@@ -100,8 +109,15 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
+      s.add_development_dependency(%q<rake>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<shoulda>, [">= 0"])
+      s.add_development_dependency(%q<rake>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, [">= 2.3.4"])
       s.add_runtime_dependency(%q<uuid>, [">= 2.1.1"])
+      s.add_runtime_dependency(%q<macaddr>, [">= 1.5.0"])
       s.add_runtime_dependency(%q<builder>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
@@ -115,8 +131,15 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
+      s.add_dependency(%q<rake>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<shoulda>, [">= 0"])
+      s.add_dependency(%q<rake>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 2.3.4"])
       s.add_dependency(%q<uuid>, [">= 2.1.1"])
+      s.add_dependency(%q<macaddr>, [">= 1.5.0"])
       s.add_dependency(%q<builder>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -131,8 +154,15 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
+    s.add_dependency(%q<rake>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<shoulda>, [">= 0"])
+    s.add_dependency(%q<rake>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 2.3.4"])
     s.add_dependency(%q<uuid>, [">= 2.1.1"])
+    s.add_dependency(%q<macaddr>, [">= 1.5.0"])
     s.add_dependency(%q<builder>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
