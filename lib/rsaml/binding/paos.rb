@@ -14,8 +14,10 @@ module RSAML
     class PAOS < Base
       URN = 'urn:oasis:names:tc:SAML:2.0:bindings:PAOS'.freeze
 
-      def self.identification
-        URN
+      class << self
+        def identification
+          URN
+        end
       end
     end
   end

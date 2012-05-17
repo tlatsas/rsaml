@@ -25,8 +25,10 @@ module RSAML
     class HTTPArtifact < Base
       URN = 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact'.freeze
 
-      def self.identification
-        URN
+      class << self
+        def identification
+          URN
+        end
       end
     end
   end

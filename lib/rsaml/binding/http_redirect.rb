@@ -26,8 +26,10 @@ module RSAML
     class HTTPRedirect < Base
       URN = 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'.freeze
 
-      def self.identification
-        URN
+      class << self
+        def identification
+          URN
+        end
       end
     end
   end
