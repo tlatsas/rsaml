@@ -1,6 +1,6 @@
-== About
+= RSAML
 
-{<img src="https://secure.travis-ci.org/rsaml/rsaml.png?branch=master" alt="Build Status" />}[http://travis-ci.org/rsaml/rsaml]
+== About
 
 RSAML is a SAML implementation in Ruby. RSAML currently implements the elements defined in the SAML-Core 2.0 specification by defining an object model that mimics the structure of SAML. Method names and attributes have been made ruby-friendly and documentation is provided for each class and method. In certain cases the SAML specification is referenced directly and should be considered the final say whenever a question arises regarding SAML implementation.
 
@@ -10,9 +10,40 @@ Concrete requests:
 * RSAML::Protocol::Query::AttributeQuery (Attribute query)
 * RSAML::Protocol::Query::AuthzDecisionQuery (Authorization query)
 
-== A note on the implementation
+=== Project status
+
+{<img src="https://secure.travis-ci.org/rsaml/rsaml.png?branch=master" alt="Build Status" />}[http://travis-ci.org/rsaml/rsaml]
+
+RSAML is currently (as of May 2012) under major rework. Most notable missing/half-baked features :
+
+* XML Signing / Signature verification
+* SAML 2.0 Bindings implementations
+* Half-baked core protocol elements serialization/deserialization
+
+=== A note on the implementation
 
 RSAML is implemented in a very verbose fashion. While there are probably ways to reduce the code footprint using meta programming and other Rubyisms, I've attempted to stick to an implementation style that is easy to follow for non-rubyists and rubyists alike. Additionally I am striving for a comprehensive test suite that can be used to verify conformance to the SAML 2.0 specification.
+
+== Contributing
+
+* Fork the repo.
+* Make your feature addition or bug fix.
+* Add tests for it.
+* Commit, do not mess with gemspec, version, or history.
+* Send a pull request. Bonus points for topic branches.
+
+== Credits
+
+=== Authors
+
+* {Anthony Eden}[http://www.anthonyeden.com]
+* {Nikos Dimitrakopoulos}[http://blog.nikosd.com]
+
+=== Maintainers
+
+* {Nikos Dimitrakopoulos}[http://blog.nikosd.com]
+
+=== {Contributors}[https://github.com/rsaml/rsaml/graphs/contributors]
 
 == License
 
