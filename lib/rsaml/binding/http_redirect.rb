@@ -1,3 +1,6 @@
+require 'zlib'
+require 'uri'
+
 module RSAML
   module Binding
     # The HTTP Redirect binding defines a mechanism by which SAML protocol messages can be transmitted
@@ -23,11 +26,51 @@ module RSAML
     # bindings. This binding assumes nothing apart from the capabilities of a common web browser.
     #
     # See SAML 2.0 Bindings spec, section 3.4 for more info.
-    class HTTPRedirect
+    class HTTPRedirect < Base
       URN = 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'.freeze
 
-      def self.identification
-        URN
+      class << self
+        def identification
+          URN
+        end
+
+        # Encoding implementation for HTTP Redirect binding :
+        #  * Deflate
+        #  * Base 64
+        #  * URI encode
+        def encode(xml)
+          ::URI::encode(Base64.encode64(Zlib::Deflate.deflate(xml)))
+        end
+
+        # Decoding implementation for HTTP Redirect binding :
+        #  * URI decode
+        #  * Base 64
+        #  * Inflate
+        def decode(xml)
+          Zlib::Inflate.inflate(Base64.decode64(::URI::decode(xml)))
+        end
+
+        # Wrapper around `message_data` that produces the actual redirection URL with
+        # the SAML data payload.
+        #
+        # The endpoint_url is the base url on to build upon.
+        # Options are passed directly to `message_data`.
+        def message_url(message, endpoint_url, options = {})
+          saml_query_attributes = []
+          if message.kind_of? RSAML::Protocol::Response
+            saml_query_attributes << "SAMLResponse=#{message_data(message, options)}"
+          elsif message.kind_of? RSAML::Protocol::Request
+            saml_query_attributes << "SAMLRequest=#{message_data(message, options)}"
+          else
+            raise ArgumentError.new('message should be kind of Protocol::Response or Protocol::Request')
+          end
+
+          uri = ::URI.parse(endpoint_url)
+          uri.query = uri.query.blank? ? '' : "#{uri.query}&"
+          uri.query << saml_query_attributes.join('&')
+
+          uri.to_s
+        end
       end
     end
   end

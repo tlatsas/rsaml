@@ -22,11 +22,13 @@ module RSAML
     # also maintain state while the artifact is pending, which has implications for load-balanced environments.
     #
     # See SAML 2.0 Bindings spec, section 3.6 for more info.
-    class HTTPArtifact
+    class HTTPArtifact < Base
       URN = 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact'.freeze
 
-      def self.identification
-        URN
+      class << self
+        def identification
+          URN
+        end
       end
     end
   end
