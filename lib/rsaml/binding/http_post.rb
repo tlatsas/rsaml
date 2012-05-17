@@ -25,6 +25,16 @@ module RSAML
         def identification
           URN
         end
+
+        # Encoding implementation for HTTP Post binding (base64).
+        def encode(xml)
+          Base64.encode64(xml)
+        end
+
+        # Decoding implementation for HTTP Post binding (base64).
+        def decode(data)
+          Base64.decode64(data)
+        end
       end
     end
   end
