@@ -60,6 +60,7 @@ begin
     gemspec.authors = ["Anthony Eden"]
     gemspec.add_dependency('activesupport', '>=2.3.4')
     gemspec.add_dependency('uuid', '>=2.1.1')
+    gemspec.add_dependency('macaddr', '>=1.5.0') # Explicitly require > 1.5 for better 1.9.3 compatibility
     gemspec.add_dependency('builder')
     gemspec.add_development_dependency('rake')
     gemspec.add_development_dependency('jeweler')
