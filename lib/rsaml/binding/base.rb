@@ -21,6 +21,11 @@ module RSAML
         def decode(xml)
           xml
         end
+
+        # Initializes a new RSAML::Protocol::AuthnRequest after decoding the given xml.
+        def authn_request(xml)
+          Protocol::AuthnRequest.from_xml(decode(xml))
+        end
       end
     end
   end
