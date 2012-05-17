@@ -1,5 +1,7 @@
 == About
 
+{<img src="https://secure.travis-ci.org/rsaml/rsaml.png?branch=master" alt="Build Status" />}[http://travis-ci.org/rsaml/rsaml]
+
 RSAML is a SAML implementation in Ruby. RSAML currently implements the elements defined in the SAML-Core 2.0 specification by defining an object model that mimics the structure of SAML. Method names and attributes have been made ruby-friendly and documentation is provided for each class and method. In certain cases the SAML specification is referenced directly and should be considered the final say whenever a question arises regarding SAML implementation.
 
 Concrete requests:
