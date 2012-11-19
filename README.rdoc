@@ -25,6 +25,26 @@ RSAML is currently (as of May 2012) under major rework. Most notable missing/hal
 
 RSAML is implemented in a very verbose fashion. While there are probably ways to reduce the code footprint using meta programming and other Rubyisms, I've attempted to stick to an implementation style that is easy to follow for non-rubyists and rubyists alike. Additionally I am striving for a comprehensive test suite that can be used to verify conformance to the SAML 2.0 specification.
 
+=== TODO
+
+* Add .from_xml to all applicable classes
+* Proper output of namespaces in to_xml
+* Use constants where appropriate instead of free form text, like :
+  * RSAML::Protocol::AuthnRequest#protocol_binding
+  * RSAML::Protocol::NameIdPolicy#format
+  * etc..
+* Possibly refactor the models to use a DSL for the mapping instead of handwriting
+  each time `.from_xml` and `#to_xml`
+* Migrate to Nokogiri?
+* Pretty output for xml
+* Make consistent the naming of the class fields. For example :
+    * AuthenticationContext should be AuthnContext
+    * AuthnContext#class_reference vs Subject#subject_confirmations
+* Attribute.from_xml can not actually handle attribute values
+* AttributeValue really supports only xs:string types.
+  This should work at least for all xs simple types
+* AttributeValue support for nil/empty strings
+
 == Contributing
 
 * Fork the repo.
