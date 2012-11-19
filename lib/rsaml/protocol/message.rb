@@ -42,7 +42,7 @@ module RSAML #:nodoc:
       # This extension point contains optional protocol message extension elements that are agreed on 
       # between the communicating parties.
       def extensions
-        @extionsion ||= []
+        @extensions ||= []
       end
       
       # Validate the request structure

@@ -49,7 +49,6 @@ module RSAML #:nodoc:
       def self.from_xml(element)
         Name.new(element.text)
       end
-    
     end
   end
 end
