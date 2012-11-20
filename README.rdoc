@@ -27,6 +27,7 @@ RSAML is implemented in a very verbose fashion. While there are probably ways to
 
 === TODO
 
+* Use {Addressable}[https://rubygems.org/gems/addressable] instead of CGI for URI encoding/decoding.
 * Add .from_xml to all applicable classes
 * Proper output of namespaces in to_xml
 * Use constants where appropriate instead of free form text, like :

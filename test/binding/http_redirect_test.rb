@@ -9,10 +9,56 @@ class HTTPRedirectTest < Test::Unit::TestCase
       assert_equal 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect', subject.identification
     end
     should 'encode according to the spec' do
-      assert_equal 'eJwLcY0IiXdxDHEEAA4cAr8=%0A', subject.encode('TEXT_DATA')
+      xml = <<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+                    ID="djikeehkdinmglljlaeianmgabajfnplkldoamkl"
+                    Version="2.0"
+                    IssueInstant="2008-05-27T08:19:29Z"
+                    ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                    ProviderName="LocalTest"
+                    AssertionConsumerServiceURL="http://localhost:3000/sp/acs"
+                    IsPassive="true">
+    <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">http://localhost:3000</saml:Issuer>
+</samlp:AuthnRequest>
+XML
+      encoded_xml = "eJx9UkFuwjAQvPOKyPcQQ1UVLBJEW1VFohWC0ENvxtkSE8dOvU7U59cNICE1%0AwaeVPDszO7uz%2BU%2BpggYsSqNjMhpSEoAWJpP6EJNd%2BhJOyDwZzJCXqmKL2uV6%0AA981oAt8o0bWfsSktpoZjhKZ5iUgc4JtF28rNh5SVlnjjDCKDIKOt3yOSXaU%0ABUBeeNXyoNRRcZDcl3zPj1%2B6UoXKDC%2BLHoaPi3sv1qOBWMNSo%2BPaeRilk5De%0Ah%2BOHlE7YaMrG08%2FuvvXZ%2BaPUp0Bujbk%2FgZC9puk63EAmLQjXS9zIDOy7Z4nJ%0AygiuUp9pN3iBCNb5CZ%2BMxroEuwXbSAG7zSomuXMViyL1R5EbdOyOUhphFXGB%0AfWGsOaJsvLCzNZCkRbUbZm1Q9mq1t0fmF2ck6fQxi65Y%2FRVF%2F88oGfwC4ze9%0AyA%3D%3D%0A"
+      assert_equal encoded_xml, subject.encode(xml)
     end
     should 'decode according to the spec' do
-      assert_equal 'TEXT_DATA', subject.decode('eJwLcY0IiXdxDHEEAA4cAr8=%0A')
+      xml = <<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+                    ID="djikeehkdinmglljlaeianmgabajfnplkldoamkl"
+                    Version="2.0"
+                    IssueInstant="2008-05-27T08:19:29Z"
+                    ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                    ProviderName="LocalTest"
+                    AssertionConsumerServiceURL="http://localhost:3000/sp/acs"
+                    IsPassive="true">
+    <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">http://localhost:3000</saml:Issuer>
+</samlp:AuthnRequest>
+XML
+      encoded_xml = "eJx9UkFuwjAQvPOKyPcQQ1UVLBJEW1VFohWC0ENvxtkSE8dOvU7U59cNICE1%0AwaeVPDszO7uz%2BU%2BpggYsSqNjMhpSEoAWJpP6EJNd%2BhJOyDwZzJCXqmKL2uV6%0AA981oAt8o0bWfsSktpoZjhKZ5iUgc4JtF28rNh5SVlnjjDCKDIKOt3yOSXaU%0ABUBeeNXyoNRRcZDcl3zPj1%2B6UoXKDC%2BLHoaPi3sv1qOBWMNSo%2BPaeRilk5De%0Ah%2BOHlE7YaMrG08%2FuvvXZ%2BaPUp0Bujbk%2FgZC9puk63EAmLQjXS9zIDOy7Z4nJ%0AygiuUp9pN3iBCNb5CZ%2BMxroEuwXbSAG7zSomuXMViyL1R5EbdOyOUhphFXGB%0AfWGsOaJsvLCzNZCkRbUbZm1Q9mq1t0fmF2ck6fQxi65Y%2FRVF%2F88oGfwC4ze9%0AyA%3D%3D%0A"
+      assert_equal xml, subject.decode(encoded_xml)
+    end
+    should 'skip unescape on decode if asked' do
+      xml = <<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+                    ID="djikeehkdinmglljlaeianmgabajfnplkldoamkl"
+                    Version="2.0"
+                    IssueInstant="2008-05-27T08:19:29Z"
+                    ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                    ProviderName="LocalTest"
+                    AssertionConsumerServiceURL="http://localhost:3000/sp/acs"
+                    IsPassive="true">
+    <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">http://localhost:3000</saml:Issuer>
+</samlp:AuthnRequest>
+XML
+      encoded_xml = "eJx9UkFuwjAQvPOKyPcQQ1UVLBJEW1VFohWC0ENvxtkSE8dOvU7U59cNICE1%0AwaeVPDszO7uz%2BU%2BpggYsSqNjMhpSEoAWJpP6EJNd%2BhJOyDwZzJCXqmKL2uV6%0AA981oAt8o0bWfsSktpoZjhKZ5iUgc4JtF28rNh5SVlnjjDCKDIKOt3yOSXaU%0ABUBeeNXyoNRRcZDcl3zPj1%2B6UoXKDC%2BLHoaPi3sv1qOBWMNSo%2BPaeRilk5De%0Ah%2BOHlE7YaMrG08%2FuvvXZ%2BaPUp0Bujbk%2FgZC9puk63EAmLQjXS9zIDOy7Z4nJ%0AygiuUp9pN3iBCNb5CZ%2BMxroEuwXbSAG7zSomuXMViyL1R5EbdOyOUhphFXGB%0AfWGsOaJsvLCzNZCkRbUbZm1Q9mq1t0fmF2ck6fQxi65Y%2FRVF%2F88oGfwC4ze9%0AyA%3D%3D%0A"
+      unescaped_encoded_xml = CGI.unescape(encoded_xml)
+      assert_equal xml, subject.decode(unescaped_encoded_xml, :skip_unescape => true)
     end
     context 'message_url' do
       context 'with not an actual Protocol::Message' do

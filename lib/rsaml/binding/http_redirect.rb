@@ -1,5 +1,6 @@
 require 'zlib'
 require 'uri'
+require 'cgi'
 
 module RSAML
   module Binding
@@ -39,15 +40,20 @@ module RSAML
         #  * Base 64
         #  * URI encode
         def encode(xml)
-          ::URI::encode(Base64.encode64(Zlib::Deflate.deflate(xml)))
+          CGI.escape(Base64.encode64(Zlib::Deflate.deflate(xml)))
         end
 
         # Decoding implementation for HTTP Redirect binding :
         #  * URI decode
         #  * Base 64
         #  * Inflate
-        def decode(xml)
-          Zlib::Inflate.inflate(Base64.decode64(::URI::decode(xml)))
+        #
+        # All procedures are optional and can skipped by passing `:skip_unescape`,
+        # `:skip_decode` and `:skip_inflate`.
+        def decode(xml, options = {})
+          unescaped = options[:skip_unescape] ? xml : CGI.unescape(xml)
+          decoded = options[:skip_decode] ? unescaped : Base64.decode64(unescaped)
+          inflated = options[:skip_inflate] ? decoded : Zlib::Inflate.inflate(decoded)
         end
 
         # Wrapper around `message_data` that produces the actual redirection URL with
