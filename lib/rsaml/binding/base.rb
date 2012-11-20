@@ -19,13 +19,14 @@ module RSAML
         #
         # Important : If this gets overriden, encode should be too,
         # with the general rule of decode(encode(original)) == original.
-        def decode(xml)
+        def decode(xml, options = {})
           xml
         end
 
         # Initializes a new RSAML::Protocol::AuthnRequest after decoding the given xml.
-        def authn_request(xml)
-          Protocol::AuthnRequest.from_xml(decode(xml))
+        # `decode_options` are directly passed to `decode`.
+        def authn_request(xml, decode_options = {})
+          Protocol::AuthnRequest.from_xml(decode(xml, decode_options))
         end
 
         # Generates a valid XML document for the given RSAML::Protocol::Message

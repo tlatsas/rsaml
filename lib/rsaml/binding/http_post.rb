@@ -32,7 +32,7 @@ module RSAML
         end
 
         # Decoding implementation for HTTP Post binding (base64).
-        def decode(data)
+        def decode(data, options = {})
           Base64.decode64(data)
         end
       end
