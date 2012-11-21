@@ -40,7 +40,16 @@ module RSAML
         #  * Base 64
         #  * URI encode
         def encode(xml)
-          CGI.escape(Base64.encode64(Zlib::Deflate.deflate(xml)))
+          # Per spec, DEFLATE, encode and escape the data, but what is this magic `2..-5`?
+          #
+          # Copying from http://en.wikipedia.org/wiki/Zlib :
+          #   zlib compressed data is typically written with a gzip or a zlib wrapper.
+          #   The wrapper encapsulates the raw DEFLATE data by adding a header and trailer.
+          #   This provides stream identification and error detection that are not provided
+          #   by the raw DEFLATE data.
+          #
+          # Which in human terms means, getting rid of the zlib container (header, trailer).
+          CGI.escape(Base64.encode64(Zlib::Deflate.deflate(xml, 9)[2..-5]))
         end
 
         # Decoding implementation for HTTP Redirect binding :
@@ -53,7 +62,9 @@ module RSAML
         def decode(xml, options = {})
           unescaped = options[:skip_unescape] ? xml : CGI.unescape(xml)
           decoded = options[:skip_decode] ? unescaped : Base64.decode64(unescaped)
-          inflated = options[:skip_inflate] ? decoded : Zlib::Inflate.inflate(decoded)
+          # What's the magic `-Zlib::MAX_WBITS`? Basically see the doc on encode.
+          # This is needed in order to actual work in reverse.
+          inflated = options[:skip_inflate] ? decoded : Zlib::Inflate.new(-Zlib::MAX_WBITS).inflate(decoded)
         end
 
         # Wrapper around `message_data` that produces the actual redirection URL with
