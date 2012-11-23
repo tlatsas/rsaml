@@ -155,6 +155,38 @@ module RSAML #:nodoc:
         end
       end
     end
+
+    # This method generates the necessary template for signing the assertion
+    # with the `xmlsec` command line tool. Hard assumptions have been made
+    # and this API/functionality is highly experimental and *will break*
+    # on future versions.
+    def generate_assertion_signature_template
+      signature = XmlSig::Signature.new
+
+      signed_info = XmlSig::SignedInfo.new
+      signed_info.canonicalization_method = XmlSig::CanonicalizationMethod.new.tap { |cm| cm.algorithm = "http://www.w3.org/2001/10/xml-exc-c14n#" }
+      signed_info.signature_method = XmlSig::SignatureMethod.new.tap { |cm| cm.algorithm = "http://www.w3.org/2000/09/xmldsig#rsa-sha1" }
+
+      reference = XmlSig::Reference.new
+      reference.uri = "##{self.id}"
+      enveloped_signature_tranform = XmlSig::Transform.new.tap { |t| t.algorithm = XmlSig::EnvelopedSignatureTransform::IDENTIFIER }
+      c14n_tranform = XmlSig::Transform.new.tap { |t| t.algorithm = "http://www.w3.org/2001/10/xml-exc-c14n#" }
+      reference.transforms << enveloped_signature_tranform
+      reference.transforms << c14n_tranform
+      reference.digest_method = XmlSig::DigestMethod.new.tap { |d| d.algorithm = XmlSig::DigestMethod.identifiers['SHA-1'] }
+      reference.digest_value = ''
+      signed_info.references << reference
+
+      signature.signed_info = signed_info
+
+      key_info = XmlSig::KeyInfo.new
+      x509_data = XmlSig::X509Data.new
+      x509_data.x509_certificate = ''
+      key_info.x509_data = x509_data
+      signature.key_info = key_info
+
+      self.signature = signature
+    end
     
     # Construct an XML fragment representing the assertion
     def to_xml(xml=Builder::XmlMarkup.new)
