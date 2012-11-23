@@ -61,22 +61,32 @@ module RSAML
             message.to_xml(xml)
           end
 
-          # Hacking the universe!
+          # Hacking the universe! Heavily inspired by another similar hack:
+          # https://github.com/carnesmedia/savon/commit/13f47e8bc3a0fe3edcf82b3bf6961888b3c303ab#L5R0
           if options[:sign]
-            xml_file = Tempfile.new("message_xml_as_xml_template")
-            xml_file.write raw_xml
-            xml_file.close
+            begin
+              xml_file = Tempfile.new("message_xml_as_xml_template")
+              xml_file.write raw_xml
+              xml_file.close
 
-            xmlsec_options = []
-            xmlsec_options << '--sign'
-            xmlsec_options << '--id-attr:ID Assertion'
-            xmlsec_options << "--pkcs12 #{ENV['SAML_CERTIFICATE']}"
-            xmlsec_options << "--pwd #{ENV['SAML_CERTIFICATE_PASSWORD']}" if ENV['SAML_CERTIFICATE_PASSWORD']
-            xmlsec_options << "--trusted-pem #{ENV['SAML_TRUSTED_PEM']}"
+              xmlsec_options = []
+              xmlsec_options << '--sign'
+              xmlsec_options << '--id-attr:ID Assertion'
+              xmlsec_options << "--pkcs12 #{ENV['SAML_CERTIFICATE']}"
+              xmlsec_options << "--pwd #{ENV['SAML_CERTIFICATE_PASSWORD']}" if ENV['SAML_CERTIFICATE_PASSWORD']
+              xmlsec_options << "--trusted-pem #{ENV['SAML_TRUSTED_PEM']}"
 
-            xmlsec_command = "xmlsec1 #{xmlsec_options.join(' ')} #{xml_file.path}"
+              xmlsec_command = "xmlsec1 #{xmlsec_options.join(' ')} #{xml_file.path}"
 
-            `#{xmlsec_command}`
+              `#{xmlsec_command}`
+            ensure
+              begin
+                # Try to cleanup our poop
+                xml_file.unlink
+              rescue => e
+                STDERR.write(e)
+              end
+            end
           else
             raw_xml
           end
