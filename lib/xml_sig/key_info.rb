@@ -46,10 +46,13 @@ module XmlSig #:nodoc:
 
   class X509Data
   end
+
   class PGPData
   end
+
   class SPKIData
   end
+
   class MgmtData
   end
 end

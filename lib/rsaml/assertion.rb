@@ -168,7 +168,7 @@ module RSAML #:nodoc:
         statements.each { |s| xml << s.to_xml }
       }
     end
-    
+
     # Construct an Action instance from the given XML Element or fragment.
     def self.from_xml(element)
       element = REXML::Document.new(element).root if element.is_a?(String)
