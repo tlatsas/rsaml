@@ -4,7 +4,7 @@ module XmlSig #:nodoc:
     attr_accessor :xpath
 
     def to_xml(xml=Builder::XmlMarkup.new)
-      attributes = {'Algorightm' => algorithm}
+      attributes = {'Algorithm' => algorithm}
       xml.tag!('ds:Transform', attributes) {
         xml.tag!('ds:XPath', xpath) unless xpath.nil?
       }

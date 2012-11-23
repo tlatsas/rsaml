@@ -9,7 +9,7 @@ module XmlSig #:nodoc:
     end
 
     def to_xml(xml=Builder::XmlMarkup.new)
-      attributes = {'Algorightm' => algorithm}
+      attributes = {'Algorithm' => algorithm}
       xml.tag!('ds:CanonicalizationMethod', attributes)
     end
   end

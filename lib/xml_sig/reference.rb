@@ -50,7 +50,7 @@ module XmlSig #:nooc:
     end
 
     def to_xml(xml=Builder::XmlMarkup.new)
-      attributes = {'Algorightm' => algorithm}
+      attributes = {'Algorithm' => algorithm}
       xml.tag!('ds:DigestMethod', attributes)
     end
   end
