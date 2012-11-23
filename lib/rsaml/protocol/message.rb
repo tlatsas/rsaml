@@ -34,7 +34,7 @@ module RSAML #:nodoc:
       
       # Initialize the message instance
       def initialize
-        @id = UUID.new.generate
+        @id = "_" + UUID.new.generate
         @version = "2.0"
         @issue_instant = Time.now.utc
       end

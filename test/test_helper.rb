@@ -11,6 +11,6 @@ class Test::Unit::TestCase
     '\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z'
   end
   def uuid_match
-    '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}'
+    '_[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}'
   end
 end
