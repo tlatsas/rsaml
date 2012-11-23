@@ -2,7 +2,14 @@
 
 == About
 
-RSAML is a SAML implementation in Ruby. RSAML currently implements the elements defined in the SAML-Core 2.0 specification by defining an object model that mimics the structure of SAML. Method names and attributes have been made ruby-friendly and documentation is provided for each class and method. In certain cases the SAML specification is referenced directly and should be considered the final say whenever a question arises regarding SAML implementation.
+RSAML is a SAML implementation in Ruby. RSAML currently implements the elements
+defined in the SAML-Core 2.0 specification by defining an object model that
+mimics the structure of SAML.
+
+Method names and attributes have been made ruby-friendly and documentation is
+provided for almost each class and method. In certain cases the SAML specification
+is referenced directly and should be considered the final say whenever a question
+arises regarding SAML implementation.
 
 Concrete requests:
 
@@ -12,10 +19,11 @@ Concrete requests:
 
 === Project status
 
-{<img src="https://secure.travis-ci.org/rsaml/rsaml.png?branch=master" alt="Build Status" />}[http://travis-ci.org/rsaml/rsaml]
-{<img src="https://gemnasium.com/rsaml/rsaml.png" alt="Dependency Status" />}[http://gemnasium.com/rsaml/rsaml]
+[![Build Status](https://secure.travis-ci.org/rsaml/rsaml.png?branch=travis)](https://travis-ci.org/rsaml/rsaml)
+[![Dependency Status](https://gemnasium.com/rsaml/rsaml.png)](http://gemnasium.com/rsaml/rsaml)
 
-RSAML is currently (as of May 2012) under major rework. Most notable missing/half-baked features :
+RSAML is currently (as of Nov 2012) under major rework.
+Most notable missing/half-baked features :
 
 * XML Signing / Signature verification
 * SAML 2.0 Bindings implementations
@@ -23,22 +31,27 @@ RSAML is currently (as of May 2012) under major rework. Most notable missing/hal
 
 === A note on the implementation
 
-RSAML is implemented in a very verbose fashion. While there are probably ways to reduce the code footprint using meta programming and other Rubyisms, I've attempted to stick to an implementation style that is easy to follow for non-rubyists and rubyists alike. Additionally I am striving for a comprehensive test suite that can be used to verify conformance to the SAML 2.0 specification.
+RSAML is implemented in a very verbose fashion. While there are probably ways to
+reduce the code footprint using meta programming and other Rubyisms, it was
+attempted to stick to an implementation style that is easy to follow for
+non-rubyists and rubyists alike. Additionally a great effort has be given for a
+comprehensive test suite that can be used to verify conformance to the SAML 2.0
+specification.
 
 === Signing XML responses
 
 There is now a rough and experimental approach for signing Assertions in Responses.
 It is very rough, hard-coded and ugly. To get it working you need the following:
 
-* {xmlsec}[http://www.aleksey.com/xmlsec/xmlsec-man.html] command line tool installed and working
+* [xmlsec](http://www.aleksey.com/xmlsec/xmlsec-man.html) command line tool installed and working
 * A valid private key pkcs12 file and it's exact filename set as the environment variable `SAML_CERTIFICATE`
 * A valid trusted (root) certificate PEM file and it's exact filename set as the environment variable `SAML_TRUSTED_PEM`
 * If the private key has a password it must be set as the environment variable `SAML_CERTIFICATE_PASSWORD`
 
-If you have this, in order to get the assertions signed in a Response message you have to do
-something like the following:
+If you have this, in order to get the assertions signed in a Response message you
+have to do something like the following:
 
-<tt>
+```ruby
 response = RSAML::Protocol::Response.new
 # ...
 
@@ -50,9 +63,9 @@ response.assertions.each { |assertion| assertion.generate_assertion_signature_te
 # Select your binding and tell it to sign the response before returning you the encoded data.
 # This is how it would be for example on the HTTPPost binding, which by 99% is what you want anyway.
 encoded_and_encrypted_saml_response = RSAML::Binding::HTTPPost.message_data(response, :pretty => true, :sign => true)
-</tt>
+```
 
-==== Next steps regarding Signing
+==== Next steps regarding signing
 
 * Use actual ruby bindings around xmlsec and not the command line tool.
 * Provide a way to configure the key/cert without using environment variables.
@@ -61,7 +74,7 @@ encoded_and_encrypted_saml_response = RSAML::Binding::HTTPPost.message_data(resp
 
 === TODO
 
-* Use {Addressable}[https://rubygems.org/gems/addressable] instead of CGI for URI encoding/decoding.
+* Use [Addressable](https://rubygems.org/gems/addressable) instead of CGI for URI encoding/decoding.
 * Add .from_xml to all applicable classes
 * Proper output of namespaces in to_xml
 * Use constants where appropriate instead of free form text, like :
@@ -92,14 +105,14 @@ encoded_and_encrypted_saml_response = RSAML::Binding::HTTPPost.message_data(resp
 
 === Authors
 
-* {Anthony Eden}[http://www.anthonyeden.com]
-* {Nikos Dimitrakopoulos}[http://blog.nikosd.com]
+* [Anthony Eden](http://www.anthonyeden.com)
+* [Nikos Dimitrakopoulos](http://blog.nikosd.com)
 
 === Maintainers
 
-* {Nikos Dimitrakopoulos}[http://blog.nikosd.com]
+* [Nikos Dimitrakopoulos](http://blog.nikosd.com)
 
-=== {Contributors}[https://github.com/rsaml/rsaml/graphs/contributors]
+=== [Contributors](https://github.com/rsaml/rsaml/graphs/contributors)
 
 == License
 
