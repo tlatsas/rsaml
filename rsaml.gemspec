@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "lib/rsaml.rb",
     "lib/rsaml/action.rb",
