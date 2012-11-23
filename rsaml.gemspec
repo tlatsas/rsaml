@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = "RSAML is a SAML implementation in Ruby. RSAML currently implements the elements defined in the SAML-Core 2.0 \n    specification by defining an object model that mimics the structure of SAML. Method names and attributes have been made \n    ruby-friendly and documentation is provided for each class and method. In certain cases the SAML specification is \n    referenced directly and should be considered the final say whenever a question arises regarding SAML implementation.\n    "
   s.email = ["anthonyeden@gmail.com", "nospam@nikosd.com", "scashin133@gmail.com", "elise@elisehuard.be"]
   s.extra_rdoc_files = [
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     "README.rdoc",
