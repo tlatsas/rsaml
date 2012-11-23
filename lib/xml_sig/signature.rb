@@ -22,7 +22,7 @@ module XmlSig #:nodoc:
       xml.tag!('ds:Signature', attributes) {
         xml << signed_info.to_xml if signed_info
         xml.tag!('ds:SignatureValue')
-        xml.tag!('ds:KeyInfo') if key_info
+        xml << key_info.to_xml if key_info
       }
     end
   end

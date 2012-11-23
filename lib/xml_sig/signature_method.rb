@@ -12,9 +12,7 @@ module XmlSig #:nodoc:
 
     def to_xml(xml=Builder::XmlMarkup.new)
       attributes = {'Algorithm' => algorithm}
-      xml.tag!('ds:SignatureMethod', attributes) {
-        xml.tag!('ds:HMACOutputLength', hmac_output_length) unless hmac_output_length.nil?
-      }
+      xml.tag!('ds:SignatureMethod', attributes)
     end
   end
 end

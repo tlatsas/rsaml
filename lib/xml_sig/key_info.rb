@@ -5,12 +5,14 @@ module XmlSig #:nodoc:
     attr_accessor :key_value
     attr_accessor :retrieval_method
     attr_accessor :key_data
+    attr_accessor :x509_data
 
     def to_xml(xml=Builder::XmlMarkup.new)
       xml.tag!('ds:KeyInfo') {
-        xml.tag!('ds:KeyName', key_name)
+        xml << x509_data.to_xml if x509_data
+        xml.tag!('ds:KeyName', key_name) if key_name
         xml.tag!('ds:KeyValue') {
-          xml << key_value.to_xml
+          xml << key_value.to_xml if key_value
         }
       }
     end
@@ -45,6 +47,13 @@ module XmlSig #:nodoc:
   end
 
   class X509Data
+    attr_accessor :x509_certificate
+
+    def to_xml(xml=Builder::XmlMarkup.new)
+      xml.tag!('ds:X509Data') {
+        xml.tag!('ds:X509Certificate', x509_certificate)
+      }
+    end
   end
 
   class PGPData
