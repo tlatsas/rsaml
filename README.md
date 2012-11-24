@@ -22,7 +22,7 @@ Concrete requests:
 Project status
 -----
 
-[![Build Status](https://secure.travis-ci.org/rsaml/rsaml.png?branch=travis)](https://travis-ci.org/rsaml/rsaml)
+[![Build Status](https://secure.travis-ci.org/rsaml/rsaml.png?branch=master)](https://travis-ci.org/rsaml/rsaml)
 [![Dependency Status](https://gemnasium.com/rsaml/rsaml.png)](http://gemnasium.com/rsaml/rsaml)
 
 RSAML is currently (as of Nov 2012) under major rework.
