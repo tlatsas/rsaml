@@ -31,6 +31,27 @@ XML
         assert_equal "ID", subject.id
       end
     end
+    context "logout_request" do
+      subject {
+        xml = <<XML
+<samlp:LogoutRequest
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+    ID="_72424ea37e28763e351189529639b9c2b150ff37e5" Version="2.0"
+    Destination="https://openidp.feide.no/simplesaml/saml2/idp/SingleLogoutService.php"
+    IssueInstant="2008-06-03T12:59:57Z">
+    <saml:Issuer >urn:mace:feide.no:services:no.feide.foodle</saml:Issuer>
+    <saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient" SPNameQualifier="urn:mace:feide.no:services:no.feide.foodle">_6a171f538d4f733ae95eca74ce264cfb602808c850</saml:NameID>
+    <samlp:SessionIndex>_b976de57fcf0f707de297069f33a6b0248827d96a9</samlp:SessionIndex>
+</samlp:LogoutRequest>
+XML
+        Base.logout_request(xml)
+      }
+      should "return a Protocol::LogoutRequest" do
+        assert_kind_of RSAML::Protocol::LogoutRequest, subject
+        assert_equal "ID", subject.id
+      end
+    end
     context "message_data" do
       setup do
         @authn_request = RSAML::Protocol::Response.new(RSAML::Protocol::Status.new(RSAML::Protocol::StatusCode.new(:success)))

@@ -31,6 +31,12 @@ module RSAML
           Protocol::AuthnRequest.from_xml(decode(xml, decode_options))
         end
 
+        # Initializes a new RSAML::Protocol::LogoutRequest after decoding the given xml.
+        # `decode_options` are directly passed to `decode`.
+        def logout_request(xml, decode_options = {})
+          Protocol::LogoutRequest.from_xml(decode(xml, decode_options))
+        end
+
         # Generates a valid XML document for the given RSAML::Protocol::Message
         # and encodes it according the actual binding implementation.
         #

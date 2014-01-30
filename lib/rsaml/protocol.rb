@@ -17,5 +17,6 @@ require 'rsaml/protocol/idp_entry'
 
 require 'rsaml/protocol/assertion_id_request'
 require 'rsaml/protocol/authn_request'
+require 'rsaml/protocol/logout_request'
 
 require 'rsaml/protocol/query'
