@@ -45,9 +45,28 @@ module RSAML #:nodoc:
         attributes['SPProvidedID'] = sp_provided_id unless sp_provided_id.nil?
         xml.tag!('saml:NameID', value, attributes)
       end
-      
+
       def self.from_xml(element)
-        Name.new(element.text)
+        element = REXML::Document.new(element).root if element.is_a? String
+        name = Name.new(element.text)
+
+        if element.attribute('Format')
+          name.format = element.attribute('Format').value
+        end
+
+        if element.attribute('NameQualifier')
+          name.format = element.attribute('NameQualifier').value
+        end
+
+        if element.attribute('SPNameQualifier')
+          name.sp_name_qualifier = element.attribute('SPNameQualifier').value
+        end
+
+        if element.attribute('SPProvidedID')
+          name.sp_provided_id = element.attribute.('SPProvidedID').value
+        end
+
+        name
       end
     end
   end
