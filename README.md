@@ -32,6 +32,16 @@ Most notable missing/half-baked features :
 * SAML 2.0 Bindings implementations
 * Half-baked core protocol elements serialization/deserialization
 
+Ruby support
+------
+
+Actively supported and maintained versions are:
+
+* Ruby 2.1.0
+* Ruby 2.0.0
+* Ruby 1.9.3
+* JRuby (1.9 mode)
+
 A note on the implementation
 -----
 
