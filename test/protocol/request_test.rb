@@ -32,7 +32,7 @@ class RequestTest < MiniTest::Test
     end
     should "create a response with in_response_to set properly" do
       response = @request.respond(Status.new(StatusCode.new(:success)))
-      assert_not_nil response
+      refute_nil response
       assert_equal @request.id, response.in_response_to
     end
     context "when producing xml" do

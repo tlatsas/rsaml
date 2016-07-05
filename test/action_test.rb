@@ -19,7 +19,7 @@ class ActionTest < MiniTest::Test
     context "when consuming xml" do
       should "return a valid Action instance" do
         action = Action.from_xml('<saml:Action xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">Read</saml:Action>')
-        assert_not_nil(action)
+        refute_nil(action)
         assert_equal 'Read', action.value
         assert_equal Action.namespaces[:rwedc_negation], action.namespace
         assert action.valid?
@@ -27,7 +27,7 @@ class ActionTest < MiniTest::Test
       context "with an action namespace attribute" do
         should "return a valid Action instance with an action namespace" do
           action = Action.from_xml(%Q(<saml:Action xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Namespace="#{Action.namespaces[:rwedc]}">Write</saml:Action>))
-          assert_not_nil(action)
+          refute_nil(action)
           assert_equal 'Write', action.value
           assert_equal Action.namespaces[:rwedc], action.namespace
         end

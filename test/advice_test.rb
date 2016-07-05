@@ -17,7 +17,7 @@ class AdviceTest < MiniTest::Test
     context "when consuming xml" do
       should "return a valid Advice instance" do
         advice = Advice.from_xml('<saml:Advice xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"></saml:Advice>')
-        assert_not_nil(advice)
+        refute_nil(advice)
         assert advice.valid?
       end
     end

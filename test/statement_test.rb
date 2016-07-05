@@ -6,7 +6,7 @@ class StatementTest < MiniTest::Test
       @statement = AuthenticationStatement.new(AuthenticationContext.new())
     end
     should "always have a UTC time for authn_instant" do
-      assert_not_nil @statement.authn_instant
+      refute_nil @statement.authn_instant
       assert @statement.authn_instant.utc?
     end
     should "be valid" do

@@ -30,7 +30,7 @@ class StatusCodeTest < MiniTest::Test
           assert_equal StatusCode::Values::RESPONDER, @status_code.value
         end
         should "leave status code nil" do
-          assert_not_nil @status_code.status_code
+          refute_nil @status_code.status_code
           assert_equal StatusCode::Values::AUTHN_FAILED, @status_code.status_code.value
         end
       end
