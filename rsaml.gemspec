@@ -108,7 +108,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
     else
-      s.add_dependency(%q<activesupport>, [">= 2.3.4"])
+      s.add_dependency(%q<activesupport>, [">= 2.3.4", "< 5.0.0"])
       s.add_dependency(%q<uuid>, [">= 2.1.1"])
       s.add_dependency(%q<macaddr>, [">= 1.5.0"])
       s.add_dependency(%q<builder>, [">= 0"])
@@ -117,7 +117,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<shoulda>, [">= 0"])
     end
   else
-    s.add_dependency(%q<activesupport>, [">= 2.3.4"])
+    s.add_dependency(%q<activesupport>, [">= 2.3.4", "< 5.0.0"])
     s.add_dependency(%q<uuid>, [">= 2.1.1"])
     s.add_dependency(%q<macaddr>, [">= 1.5.0"])
     s.add_dependency(%q<builder>, [">= 0"])
