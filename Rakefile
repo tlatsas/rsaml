@@ -8,7 +8,7 @@ require File.join(File.dirname(__FILE__), '/lib/rsaml/version')
 
 PKG_BUILD       = ENV['PKG_BUILD'] ? '.' + ENV['PKG_BUILD'] : ''
 PKG_NAME        = 'rsaml'
-PKG_VERSION     = RSAML::VERSION::STRING + PKG_BUILD
+PKG_VERSION     = RSAML::VERSION + PKG_BUILD
 PKG_FILE_NAME   = "#{PKG_NAME}-#{PKG_VERSION}"
 PKG_DESTINATION = ENV["PKG_DESTINATION"] || "../#{PKG_NAME}"
 
