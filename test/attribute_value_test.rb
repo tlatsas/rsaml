@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class AttributeValueTest < Test::Unit::TestCase
+class AttributeValueTest < MiniTest::Test
   context "an attribute value" do
     setup do
       @attribute_value = AttributeValue.new('foo')

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class SubjectLocalityTest < Test::Unit::TestCase
+class SubjectLocalityTest < MiniTest::Test
   context "a subject locality" do
     setup do
       @subject_locality = SubjectLocality.new

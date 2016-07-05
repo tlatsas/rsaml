@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class SOAPTest < Test::Unit::TestCase
+class SOAPTest < MiniTest::Test
   include RSAML::Binding
 
   context 'RSAML::Binding::SOAP' do

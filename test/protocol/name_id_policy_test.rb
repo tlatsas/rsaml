@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class NameIdPolicyTest < Test::Unit::TestCase
+class NameIdPolicyTest < MiniTest::Test
   include RSAML::Protocol
   context "a name id policy instance" do
     setup do

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class IdentifierTest < Test::Unit::TestCase
+class IdentifierTest < MiniTest::Test
   context "an identifier" do
     setup do
       @identifier = Identifier::Base.new

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class EvidenceTest < Test::Unit::TestCase
+class EvidenceTest < MiniTest::Test
   context "an evidence instance" do
     setup do 
       @evidence = Evidence.new

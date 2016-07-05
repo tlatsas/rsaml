@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class LogoutRequestTest < Test::Unit::TestCase
+class LogoutRequestTest < MiniTest::Test
   include RSAML::Protocol
 
   context "a logout request instance" do

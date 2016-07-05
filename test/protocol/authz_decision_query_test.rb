@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class AuthzDecisionQueryTest < Test::Unit::TestCase
+class AuthzDecisionQueryTest < MiniTest::Test
   include RSAML::Protocol::Query
   
   context "an authz decision query" do

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class HTTPRedirectTest < Test::Unit::TestCase
+class HTTPRedirectTest < MiniTest::Test
   include RSAML::Binding
 
   context 'RSAML::Binding::HTTPRedirect' do

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class URITest < Test::Unit::TestCase
+class URITest < MiniTest::Test
   include RSAML::Binding
 
   context 'RSAML::Binding::URI' do

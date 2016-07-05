@@ -2,7 +2,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 module XmlSig
-  class SignatureTest < Test::Unit::TestCase
+  class SignatureTest < MiniTest::Test
     SAMPLE_XML_TEMPLATE = <<XML
 <ds:Signature xmlns:ds='http://www.w3.org/2000/09/xmldsig#'>
     <ds:SignedInfo>

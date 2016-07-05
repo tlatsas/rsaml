@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class IDPListTest < Test::Unit::TestCase
+class IDPListTest < MiniTest::Test
   include RSAML::Protocol
   context "an idp list" do
     setup do

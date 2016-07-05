@@ -1,4 +1,4 @@
-class RSAMLTest < Test::Unit::TestCase
+class RSAMLTest < MiniTest::Test
   context "the RSAML module" do
     should "provide the SAML namespaces" do
       assert_equal 'urn:oasis:names:tc:SAML:2.0:assertion', RSAML::saml_namespaces['saml']

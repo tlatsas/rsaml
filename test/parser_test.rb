@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class ParserTest < Test::Unit::TestCase
+class ParserTest < MiniTest::Test
   context "a parser" do
     setup { @parser = Parser.new }
     context "parsing an attribute query message" do

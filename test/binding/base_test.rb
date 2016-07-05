@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class BaseTest < Test::Unit::TestCase
+class BaseTest < MiniTest::Test
   include RSAML::Binding
   context "Binding::Base" do
     subject { Base }

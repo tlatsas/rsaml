@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class ActionNamespaceTest < Test::Unit::TestCase
+class ActionNamespaceTest < MiniTest::Test
   context "the ActionNamespace class" do
     should "define all of the namespaces in the SAML 2.0 specification" do
       namespace_uris = ActionNamespace.namespaces.values.collect { |ns| ns.uri }

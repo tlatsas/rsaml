@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ResponseTest < Test::Unit::TestCase
+class ResponseTest < MiniTest::Test
   include RSAML::Protocol
   context "a response instance" do
     setup do

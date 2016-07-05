@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class AttributeTest < Test::Unit::TestCase
+class AttributeTest < MiniTest::Test
   context "an attribute" do
     setup do
       @attribute = Attribute.new('email')

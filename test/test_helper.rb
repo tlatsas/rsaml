@@ -1,12 +1,12 @@
-require 'test/unit'
 require 'rubygems'
+require 'minitest/autorun'
 require 'shoulda'
 
 require File.dirname(__FILE__) + '/../lib/rsaml'
 include RSAML
 include RSAML::Statement
 
-class Test::Unit::TestCase
+class MiniTest::Test
   def date_match
     '\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z'
   end

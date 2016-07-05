@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class ActionTest < Test::Unit::TestCase
+class ActionTest < MiniTest::Test
   context "an action" do
     setup do
       @action = Action.new('Read')

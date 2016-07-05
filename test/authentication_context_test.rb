@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class AuthenticationContextTest < Test::Unit::TestCase
+class AuthenticationContextTest < MiniTest::Test
   context "an authentication context" do
     setup do
       @authn_context = AuthenticationContext.new

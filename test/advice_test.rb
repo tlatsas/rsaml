@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class AdviceTest < Test::Unit::TestCase
+class AdviceTest < MiniTest::Test
   context "an advice" do
     setup { @advice = Advice.new }
     should "have 0 assertions by default" do

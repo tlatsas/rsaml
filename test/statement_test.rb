@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class StatementTest < Test::Unit::TestCase
+class StatementTest < MiniTest::Test
   context "an authentication statement" do
     setup do
       @statement = AuthenticationStatement.new(AuthenticationContext.new())

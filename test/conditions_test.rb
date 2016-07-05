@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class ConditionsTest < Test::Unit::TestCase
+class ConditionsTest < MiniTest::Test
   context "an conditions collection" do
     setup do
       @conditions = Conditions.new

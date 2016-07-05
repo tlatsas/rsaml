@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ScopingTest < Test::Unit::TestCase
+class ScopingTest < MiniTest::Test
   include RSAML::Protocol
   context "a scoping instance" do
     setup do

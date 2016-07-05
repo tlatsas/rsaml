@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class AuthnRequestTest < Test::Unit::TestCase
+class AuthnRequestTest < MiniTest::Test
   include RSAML::Protocol
   context "an authentication request instance" do
     setup do

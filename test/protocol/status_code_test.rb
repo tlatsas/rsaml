@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class StatusCodeTest < Test::Unit::TestCase
+class StatusCodeTest < MiniTest::Test
   include RSAML::Protocol
 
   context "#initialize" do

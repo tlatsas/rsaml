@@ -1,7 +1,7 @@
 # encoding: utf-8
 require File.dirname(__FILE__) + '/../test_helper'
 
-class CanonicalizationTest < Test::Unit::TestCase
+class CanonicalizationTest < MiniTest::Test
   context "a c14n without comments" do
     setup do
       @c14n = XmlSig::XMLC14NWithoutComments.new
