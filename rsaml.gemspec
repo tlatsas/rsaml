@@ -100,7 +100,6 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rsaml>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, [">= 2.3.4", "< 5.0.0"])
       s.add_runtime_dependency(%q<uuid>, [">= 2.1.1"])
       s.add_runtime_dependency(%q<macaddr>, [">= 1.5.0"])
@@ -109,7 +108,6 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
     else
-      s.add_dependency(%q<rsaml>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 2.3.4"])
       s.add_dependency(%q<uuid>, [">= 2.1.1"])
       s.add_dependency(%q<macaddr>, [">= 1.5.0"])
@@ -119,7 +117,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<shoulda>, [">= 0"])
     end
   else
-    s.add_dependency(%q<rsaml>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 2.3.4"])
     s.add_dependency(%q<uuid>, [">= 2.1.1"])
     s.add_dependency(%q<macaddr>, [">= 1.5.0"])
