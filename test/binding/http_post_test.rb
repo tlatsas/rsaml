@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class HTTPPostTest < Test::Unit::TestCase
+class HTTPPostTest < MiniTest::Test
   include RSAML::Binding
 
   context 'RSAML::Binding::HTTPPost' do

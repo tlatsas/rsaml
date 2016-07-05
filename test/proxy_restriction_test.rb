@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class ProxyRestrictionTest < Test::Unit::TestCase
+class ProxyRestrictionTest < MiniTest::Test
   context "a proxy restriction" do
     setup do
       @proxy_restriction = ProxyRestriction.new

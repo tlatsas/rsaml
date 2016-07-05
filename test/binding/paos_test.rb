@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class PAOSTest < Test::Unit::TestCase
+class PAOSTest < MiniTest::Test
   include RSAML::Binding
 
   context 'RSAML::Binding::PAOS' do

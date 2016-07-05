@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class LogoutRequestTest < Test::Unit::TestCase
+class LogoutRequestTest < MiniTest::Test
   include RSAML::Protocol
 
   context "a logout request instance" do
@@ -53,7 +53,7 @@ XML
       end
 
       should "have issue_instant set to '2008-06-03T12:59:57Z'" do
-        assert_not_nil @request.issue_instant
+        refute_nil @request.issue_instant
         assert_kind_of Time, @request.issue_instant
         assert_equal '2008-06-03T12:59:57Z', @request.issue_instant.iso8601
       end
@@ -63,12 +63,12 @@ XML
       end
 
       should "have issuer" do
-        assert_not_nil @request.issuer
+        refute_nil @request.issuer
         assert_equal 'urn:mace:feide.no:services:no.feide.foodle', @request.issuer.value
       end
 
       should "have name" do
-        assert_not_nil @request.name
+        refute_nil @request.name
         assert_equal '_6a171f538d4f733ae95eca74ce264cfb602808c850', @request.name.value
         assert_equal 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient', @request.name.format
         assert_equal 'urn:mace:feide.no:services:no.feide.foodle', @request.name.sp_name_qualifier

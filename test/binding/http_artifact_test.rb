@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class HTTPArtifactTest < Test::Unit::TestCase
+class HTTPArtifactTest < MiniTest::Test
   include RSAML::Binding
 
   context 'RSAML::Binding::HTTPArtifact' do

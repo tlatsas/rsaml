@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class SubjectTest < Test::Unit::TestCase
+class SubjectTest < MiniTest::Test
   context "a subject with an identifier" do
     setup do
       @identifier = Identifier::Name.new('example')

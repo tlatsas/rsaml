@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class SubjectLocalityTest < Test::Unit::TestCase
+class SubjectLocalityTest < MiniTest::Test
   context "a subject locality" do
     setup do
       @subject_locality = SubjectLocality.new
@@ -8,7 +8,7 @@ class SubjectLocalityTest < Test::Unit::TestCase
     context "when validating" do
       should "validate the address" do
         @subject_locality.address = 'x'
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @subject_locality.validate
         end
       end

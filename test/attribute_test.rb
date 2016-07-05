@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class AttributeTest < Test::Unit::TestCase
+class AttributeTest < MiniTest::Test
   context "an attribute" do
     setup do
       @attribute = Attribute.new('email')
@@ -11,7 +11,7 @@ class AttributeTest < Test::Unit::TestCase
       end
     end
     should "should not be valid if name is nil" do
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @attribute.name = nil
         @attribute.validate
       end

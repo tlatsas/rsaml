@@ -1,12 +1,12 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class StatementTest < Test::Unit::TestCase
+class StatementTest < MiniTest::Test
   context "an authentication statement" do
     setup do
       @statement = AuthenticationStatement.new(AuthenticationContext.new())
     end
     should "always have a UTC time for authn_instant" do
-      assert_not_nil @statement.authn_instant
+      refute_nil @statement.authn_instant
       assert @statement.authn_instant.utc?
     end
     should "be valid" do
@@ -16,7 +16,7 @@ class StatementTest < Test::Unit::TestCase
     end
     should "be invalid if authn_instant is not UTC" do
       @statement.authn_instant = Time.now
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @statement.validate
       end
     end
@@ -46,7 +46,7 @@ class StatementTest < Test::Unit::TestCase
       assert_nothing_raised { @statement.validate }
     end
     should "not be valid if empty attributes" do
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @statement.attributes.clear
         @statement.validate
       end
@@ -69,19 +69,19 @@ class StatementTest < Test::Unit::TestCase
       assert_nothing_raised { @statement.validate }
     end
     should "not be valid if resource is nil" do
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @statement.resource = nil
         @statement.validate
       end
     end
     should "not be valid if decision is nil" do
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @statement.decision = nil
         @statement.validate
       end
     end
     should "not be valid if no actions are specified" do
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @statement.actions.clear
         @statement.validate
       end

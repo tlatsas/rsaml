@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class RequestTest < Test::Unit::TestCase
+class RequestTest < MiniTest::Test
   include RSAML::Protocol
   context "a request instance" do
     setup do
@@ -8,31 +8,31 @@ class RequestTest < Test::Unit::TestCase
     end
     should "require an id" do
       @request.id = nil
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @request.validate
       end
     end
     should "require a version" do
       @request.version = nil
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @request.validate
       end
     end
     should "require an issue instant" do
       @request.issue_instant = nil
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @request.validate
       end
     end
     should "require an issue instant to be UTC" do
       @request.issue_instant = Time.now
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @request.validate
       end
     end
     should "create a response with in_response_to set properly" do
       response = @request.respond(Status.new(StatusCode.new(:success)))
-      assert_not_nil response
+      refute_nil response
       assert_equal @request.id, response.in_response_to
     end
     context "when producing xml" do

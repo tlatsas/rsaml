@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class AttributeQueryTest < Test::Unit::TestCase
+class AttributeQueryTest < MiniTest::Test
   include RSAML::Protocol::Query
   
   context "an attribute query" do
@@ -16,7 +16,7 @@ class AttributeQueryTest < Test::Unit::TestCase
       end
       should "not allow duplicate attributes" do
         @query.attributes << Attribute.new('email')
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @query.validate
         end
       end

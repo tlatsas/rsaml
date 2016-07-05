@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class AssertionIdRequestTest < Test::Unit::TestCase
+class AssertionIdRequestTest < MiniTest::Test
   include RSAML::Protocol
   context "an assertion id request instance" do
     setup do

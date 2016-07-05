@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class ActionTest < Test::Unit::TestCase
+class ActionTest < MiniTest::Test
   context "an action" do
     setup do
       @action = Action.new('Read')
@@ -19,7 +19,7 @@ class ActionTest < Test::Unit::TestCase
     context "when consuming xml" do
       should "return a valid Action instance" do
         action = Action.from_xml('<saml:Action xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">Read</saml:Action>')
-        assert_not_nil(action)
+        refute_nil(action)
         assert_equal 'Read', action.value
         assert_equal Action.namespaces[:rwedc_negation], action.namespace
         assert action.valid?
@@ -27,7 +27,7 @@ class ActionTest < Test::Unit::TestCase
       context "with an action namespace attribute" do
         should "return a valid Action instance with an action namespace" do
           action = Action.from_xml(%Q(<saml:Action xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Namespace="#{Action.namespaces[:rwedc]}">Write</saml:Action>))
-          assert_not_nil(action)
+          refute_nil(action)
           assert_equal 'Write', action.value
           assert_equal Action.namespaces[:rwedc], action.namespace
         end
@@ -35,13 +35,13 @@ class ActionTest < Test::Unit::TestCase
     end
     context "when validating" do
       should "raise an error if no value is provided" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @action.value = nil
           @action.validate
         end
       end
       should "raise an error if the value is not in the specified namespace" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @action.value = 'PUT'
           @action.validate
         end

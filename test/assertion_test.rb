@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class AssertionTest < Test::Unit::TestCase
+class AssertionTest < MiniTest::Test
   context "an assertion" do
     setup do
       @issuer = Identifier::Issuer.new('example')
@@ -10,13 +10,13 @@ class AssertionTest < Test::Unit::TestCase
       assert_equal "2.0", @assertion.version
     end
     should "require ID" do
-      assert_not_nil @assertion.id
+      refute_nil @assertion.id
     end
     should "require issue instant" do
-      assert_not_nil @assertion.issue_instant
+      refute_nil @assertion.issue_instant
     end
     should "require an issuer" do
-      assert_not_nil @assertion.issuer
+      refute_nil @assertion.issuer
     end
     
     context "with only a subject" do
@@ -34,7 +34,7 @@ class AssertionTest < Test::Unit::TestCase
         @assertion.statements << AuthenticationStatement.new(AuthenticationContext.new)
       end
       should "require a subject" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @assertion.validate
         end
         assert !@assertion.valid?
@@ -45,7 +45,7 @@ class AssertionTest < Test::Unit::TestCase
         @assertion.statements << AttributeStatement.new
       end
       should "require a subject" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @assertion.validate
         end
       end
@@ -55,7 +55,7 @@ class AssertionTest < Test::Unit::TestCase
         @assertion.statements << AuthorizationDecisionStatement.new
       end
       should "require a subject" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @assertion.validate
         end
       end
@@ -112,8 +112,8 @@ class AssertionTest < Test::Unit::TestCase
           </saml:Assertion>
         )
         assertion = Assertion.from_xml(xml_fragment)
-        assert_not_nil assertion
-        assert_not_nil assertion.issuer
+        refute_nil assertion
+        refute_nil assertion.issuer
         assert_equal 'Example', assertion.issuer.value
         assert_nothing_raised do
           assertion.validate
@@ -127,7 +127,7 @@ class AssertionTest < Test::Unit::TestCase
             </saml:Assertion>
           )
           assertion = Assertion.from_xml(xml_fragment)
-          assert_raise ValidationError do
+          assert_raises ValidationError do
             assertion.validate
           end
         end
@@ -143,7 +143,7 @@ class AssertionTest < Test::Unit::TestCase
     end
     context "when validating" do
       should "raise an error if no uri is provided" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @assertion_uri_ref.uri = nil
           @assertion_uri_ref.validate
         end
@@ -157,7 +157,7 @@ class AssertionTest < Test::Unit::TestCase
     context "when consuming xml" do
       should "return a valid AssertionURIRef instance" do
         assertion_ref = AssertionURIRef.from_xml('<saml:AssertionURIRef xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">some_uri</saml:AssertionURIRef>')
-        assert_not_nil assertion_ref
+        refute_nil assertion_ref
         assert_equal 'some_uri', assertion_ref.uri
         assert assertion_ref.valid?
       end
@@ -169,7 +169,7 @@ class AssertionTest < Test::Unit::TestCase
     end
     context "when validating" do
       should "raise an error if no id is provided" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @assertion_id_ref.id = nil
           @assertion_id_ref.validate
         end
@@ -183,7 +183,7 @@ class AssertionTest < Test::Unit::TestCase
     context "when consuming xml" do
       should "return a valid AssertionIDRef instance" do
         assertion_ref = AssertionIDRef.from_xml('<saml:AssertionIDRef xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">some_id</saml:AssertionIDRef>')
-        assert_not_nil assertion_ref
+        refute_nil assertion_ref
         assert_equal 'some_id', assertion_ref.id
         assert assertion_ref.valid?
       end

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class AuthnRequestTest < Test::Unit::TestCase
+class AuthnRequestTest < MiniTest::Test
   include RSAML::Protocol
   context "an authentication request instance" do
     setup do
@@ -109,7 +109,7 @@ XML
         assert_equal '2.0', @request.version
       end
       should "have issue_instant set to '2008-05-27T08:19:29Z'" do
-        assert_not_nil @request.issue_instant
+        refute_nil @request.issue_instant
         assert_kind_of Time, @request.issue_instant
         assert_equal '2008-05-27T08:19:29Z', @request.issue_instant.iso8601
       end
@@ -129,11 +129,11 @@ XML
         assert_equal false, @request.passive?
       end
       should "have issuer" do
-        assert_not_nil @request.issuer
+        refute_nil @request.issuer
         assert_equal 'google.com', @request.issuer.value
       end
       should "have name_id_policy" do
-        assert_not_nil @request.name_id_policy
+        refute_nil @request.name_id_policy
         assert_equal true, @request.name_id_policy.allow_create
         assert_equal 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified', @request.name_id_policy.format
       end
@@ -165,7 +165,7 @@ XML
         assert_equal '2.0', @request.version
       end
       should "have issue_instant set to '2008-05-27T08:25:23Z'" do
-        assert_not_nil @request.issue_instant
+        refute_nil @request.issue_instant
         assert_kind_of Time, @request.issue_instant
         assert_equal '2008-05-27T08:25:23Z', @request.issue_instant.iso8601
       end
@@ -185,11 +185,11 @@ XML
         assert_equal false, @request.passive?
       end
       should "have issuer" do
-        assert_not_nil @request.issuer
+        refute_nil @request.issuer
         assert_equal 'urn:mace:feide.no:services:no.uninett.maidentest', @request.issuer.value
       end
       should "have name_id_policy" do
-        assert_not_nil @request.name_id_policy
+        refute_nil @request.name_id_policy
         assert_equal true, @request.name_id_policy.allow_create
         assert_equal 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient', @request.name_id_policy.format
         assert_equal 'urn:mace:feide.no:services:no.uninett.maidentest', @request.name_id_policy.sp_name_qualifier
@@ -225,7 +225,7 @@ XML
         assert_equal '2.0', @request.version
       end
       should "have issue_instant set to '2012-04-09T13:43:25Z'" do
-        assert_not_nil @request.issue_instant
+        refute_nil @request.issue_instant
         assert_kind_of Time, @request.issue_instant
         assert_equal '2012-04-09T13:43:25Z', @request.issue_instant.iso8601
       end
@@ -242,11 +242,11 @@ XML
         assert_equal false, @request.passive?
       end
       should "have issuer" do
-        assert_not_nil @request.issuer
+        refute_nil @request.issuer
         assert_equal 'OmniAuthSAML', @request.issuer.value
       end
       should "have name_id_policy" do
-        assert_not_nil @request.name_id_policy
+        refute_nil @request.name_id_policy
         assert_equal true, @request.name_id_policy.allow_create
         assert_equal 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress', @request.name_id_policy.format
       end
@@ -275,7 +275,7 @@ XML
         assert_equal '2.0', @request.version
       end
       should "have issue_instant set to '2008-05-28T20:12:35.971Z'" do
-        assert_not_nil @request.issue_instant
+        refute_nil @request.issue_instant
         assert_kind_of Time, @request.issue_instant
         assert_equal '2008-05-28T20:12:35Z', @request.issue_instant.iso8601
       end
@@ -289,11 +289,11 @@ XML
         assert_equal false, @request.passive?
       end
       should "have issuer" do
-        assert_not_nil @request.issuer
+        refute_nil @request.issuer
         assert_equal 'edugain.showcase.surfnet.nl', @request.issuer.value
       end
       should "have name_id_policy" do
-        assert_not_nil @request.name_id_policy
+        refute_nil @request.name_id_policy
         assert_equal true, @request.name_id_policy.allow_create
       end
     end
@@ -325,7 +325,7 @@ XML
         assert_equal '2.0', @request.version
       end
       should "have issue_instant set to '2008-05-27T07:46:06Z'" do
-        assert_not_nil @request.issue_instant
+        refute_nil @request.issue_instant
         assert_kind_of Time, @request.issue_instant
         assert_equal '2008-05-27T07:46:06Z', @request.issue_instant.iso8601
       end
@@ -351,11 +351,11 @@ XML
         assert_equal 'http://dev.andreas.feide.no/simplesaml/saml2/sp/AssertionConsumerService.php', @request.assertion_consumer_service_url
       end
       should "have issuer" do
-        assert_not_nil @request.issuer
+        refute_nil @request.issuer
         assert_equal 'http://dev.andreas.feide.no/simplesaml/saml2/sp/metadata.php', @request.issuer.value
       end
       should "have name_id_policy" do
-        assert_not_nil @request.name_id_policy
+        refute_nil @request.name_id_policy
         assert_equal true, @request.name_id_policy.allow_create
         assert_equal 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient', @request.name_id_policy.format
       end
