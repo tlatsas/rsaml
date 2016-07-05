@@ -13,4 +13,8 @@ class MiniTest::Test
   def uuid_match
     '_[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}'
   end
+
+  def assert_nothing_raised
+    yield
+  end
 end
