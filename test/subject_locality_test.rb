@@ -8,7 +8,7 @@ class SubjectLocalityTest < MiniTest::Test
     context "when validating" do
       should "validate the address" do
         @subject_locality.address = 'x'
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @subject_locality.validate
         end
       end

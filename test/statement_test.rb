@@ -16,7 +16,7 @@ class StatementTest < MiniTest::Test
     end
     should "be invalid if authn_instant is not UTC" do
       @statement.authn_instant = Time.now
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @statement.validate
       end
     end
@@ -46,7 +46,7 @@ class StatementTest < MiniTest::Test
       assert_nothing_raised { @statement.validate }
     end
     should "not be valid if empty attributes" do
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @statement.attributes.clear
         @statement.validate
       end
@@ -69,19 +69,19 @@ class StatementTest < MiniTest::Test
       assert_nothing_raised { @statement.validate }
     end
     should "not be valid if resource is nil" do
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @statement.resource = nil
         @statement.validate
       end
     end
     should "not be valid if decision is nil" do
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @statement.decision = nil
         @statement.validate
       end
     end
     should "not be valid if no actions are specified" do
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @statement.actions.clear
         @statement.validate
       end

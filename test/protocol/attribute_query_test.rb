@@ -16,7 +16,7 @@ class AttributeQueryTest < MiniTest::Test
       end
       should "not allow duplicate attributes" do
         @query.attributes << Attribute.new('email')
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @query.validate
         end
       end

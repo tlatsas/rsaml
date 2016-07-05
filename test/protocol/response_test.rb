@@ -8,25 +8,25 @@ class ResponseTest < MiniTest::Test
     end
     should "require an id" do
       @response.id = nil
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @response.validate
       end
     end
     should "require a version" do
       @response.version = nil
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @response.validate
       end
     end
     should "require an issue instant" do
       @response.issue_instant = nil
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @response.validate
       end
     end
     should "require an issue instant to be UTC" do
       @response.issue_instant = Time.now
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @response.validate
       end
     end

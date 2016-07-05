@@ -34,7 +34,7 @@ class AssertionTest < MiniTest::Test
         @assertion.statements << AuthenticationStatement.new(AuthenticationContext.new)
       end
       should "require a subject" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @assertion.validate
         end
         assert !@assertion.valid?
@@ -45,7 +45,7 @@ class AssertionTest < MiniTest::Test
         @assertion.statements << AttributeStatement.new
       end
       should "require a subject" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @assertion.validate
         end
       end
@@ -55,7 +55,7 @@ class AssertionTest < MiniTest::Test
         @assertion.statements << AuthorizationDecisionStatement.new
       end
       should "require a subject" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @assertion.validate
         end
       end
@@ -127,7 +127,7 @@ class AssertionTest < MiniTest::Test
             </saml:Assertion>
           )
           assertion = Assertion.from_xml(xml_fragment)
-          assert_raise ValidationError do
+          assert_raises ValidationError do
             assertion.validate
           end
         end
@@ -143,7 +143,7 @@ class AssertionTest < MiniTest::Test
     end
     context "when validating" do
       should "raise an error if no uri is provided" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @assertion_uri_ref.uri = nil
           @assertion_uri_ref.validate
         end
@@ -169,7 +169,7 @@ class AssertionTest < MiniTest::Test
     end
     context "when validating" do
       should "raise an error if no id is provided" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @assertion_id_ref.id = nil
           @assertion_id_ref.validate
         end

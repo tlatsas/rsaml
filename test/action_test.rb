@@ -35,13 +35,13 @@ class ActionTest < MiniTest::Test
     end
     context "when validating" do
       should "raise an error if no value is provided" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @action.value = nil
           @action.validate
         end
       end
       should "raise an error if the value is not in the specified namespace" do
-        assert_raise ValidationError do
+        assert_raises ValidationError do
           @action.value = 'PUT'
           @action.validate
         end

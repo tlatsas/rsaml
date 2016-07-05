@@ -6,7 +6,7 @@ class EvidenceTest < MiniTest::Test
       @evidence = Evidence.new
     end
     should "not be valid unless at least one assertion is specified" do
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @evidence.validate
       end
     end

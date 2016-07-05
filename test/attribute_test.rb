@@ -11,7 +11,7 @@ class AttributeTest < MiniTest::Test
       end
     end
     should "should not be valid if name is nil" do
-      assert_raise ValidationError do
+      assert_raises ValidationError do
         @attribute.name = nil
         @attribute.validate
       end
